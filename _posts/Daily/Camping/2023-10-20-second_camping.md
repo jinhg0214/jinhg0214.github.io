@@ -1,0 +1,39 @@
+---
+title: "220605 난지 캠핑장"
+# excerpt : 요약
+date: 2023-10-20 14:00:00 +0900
+# last_modified_at: 
+categories: [Daily, Camping] # 최대 2개 가능
+tags: [autocamp, nanji]     # 태그는 항상 소문자로 작성할 것
+toc: true
+comment: false
+published: true
+---
+
+친구들 초대한 두번째 캠핑
+
+클라우드 피크2 텐트를 중고로 구입해서 첫 피칭을 해봤다
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3162.3602434973386!2d126.869989!3d37.570134!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c995976308423%3A0x305512720e9d2383!2z64Kc7KeA7Lqg7ZWR7J6l!5e0!3m2!1sko!2sus!4v1697781017196!5m2!1sko!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+- 참여인원 : 4명(JH, GS, TH, SM)
+- 기간 : 2022-06-05 ~ 2022-06-06
+- 난지캠핑장은 서울시에서 운영하는 캠핑장으로, 노을 캠핑장과 함께 매월 15일에 예약을 받음
+- 바베큐존은 별도로 예약을 받아 분리 운영하고있음.
+- 최대 4인까지 동행 가능하며, 어린이는 추가 입장 가능하다고 함.
+    - 전화로 확인했을땐 안된다고 했으나, 방문했을땐 어린이는 인원수로 안친다고 했음. 확인 필요.
+- 주차장과 입구가 매우 가까움. 짐 옮기기 쉬운 편.
+- 배달음식도 가능. 그러나 추가 배달비용 발생함. (현금 필요)
+- 매점에 고기 및 밀키트도 판매함.
+- 프리캠핑존은 잔디 바닥으로, 약간 운동장에서 자는 기분이였음.
+- 밤에 올림픽대로가 가까워 차량 소리가 크게 남. 귀마개 필요.
+
+# Gallery
+---
+
+<img src="https://onedrive.live.com/embed?resid=91EF77F7B9E9A70C%21342439&authkey=%21AHVosrniXBTifRg&width=1024" width="1024" height="auto" />
+_얼굴 안나온 사진이 이거밖에 없었다_
+
+---
+
