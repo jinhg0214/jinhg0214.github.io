@@ -14,9 +14,9 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Archive # the main title
+title: 김덕구의 아카이브 # the main title
 
-tagline: Better than Yesterday # it will display as the sub-title
+tagline: 이것저것 기록 블로그 # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   Nothing Special.
