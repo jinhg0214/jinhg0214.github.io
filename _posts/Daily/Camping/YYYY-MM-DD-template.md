@@ -5,6 +5,12 @@ date: YYYY-MM-DD HH:MM:SS +0900
 # last_modified_at: 
 categories: [TOP_CATEGORIE, SUB_CATEGORIE] # 최대 2개 가능
 tags: [TAG]     # 태그는 항상 소문자로 작성할 것
+
+image:
+    path: # 이미지 크기는 1200 x 630
+    alt: 
+    
+
 toc: true
 comment: false
 published: false
