@@ -3,8 +3,8 @@ title: "Github Pages 공개 범위 설정"
 # excerpt : 요약
 date: 2023-10-17
 # last_modified_at: 
-categories: [IT, GitPage] # 최대 2개 가능
-tags: [web, scope]     # 태그는 항상 소문자로 작성할 것
+categories: [IT, WEB] # 최대 2개 가능
+tags: [web, scope, gitpage, public, private]     # 태그는 항상 소문자로 작성할 것
 toc: true
 comment: false
 published: true
