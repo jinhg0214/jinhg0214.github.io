@@ -8,6 +8,12 @@ tags: [hongcheon, camping, alpaka]     # 태그는 항상 소문자로 작성할
 toc: true
 comment: false
 published: true
+
+image:
+    path: https://onedrive.live.com/embed?resid=91EF77F7B9E9A70C%21342768&authkey=%21ACK9YZSLeVkEDZc&width=1440&height=649
+    alt:
+
+
 ---
 
 홍천 사유지에 초대받아서 다녀왔다

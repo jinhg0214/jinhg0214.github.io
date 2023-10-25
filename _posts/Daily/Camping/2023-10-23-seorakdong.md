@@ -7,7 +7,7 @@ categories: [Daily, Camping] # 최대 2개 가능
 tags: [mountain, valleny, spring, seorak]     # 태그는 항상 소문자로 작성할 것
 
 image:
-    path: https://onedrive.live.com/embed?resid=91EF77F7B9E9A70C%21343372&authkey=%21AEVsvwWuKQlXT7c&width=1024
+    path: https://onedrive.live.com/embed?resid=91EF77F7B9E9A70C%21343318&authkey=%21ACySQbXEznr49lM&width=1024
     alt: 
     
 
@@ -86,6 +86,14 @@ _평일이라 그런지 비어있지만, 전기 쓰는 A쪽은 꽉차있었다_
 
 <img src="https://onedrive.live.com/embed?resid=91EF77F7B9E9A70C%21343313&authkey=%21AAMyxYIrtbxJkrU&width=1024" width="1024" height="auto" />
 _간단히 불멍하고 소세지 구워먹음_
+
+<img src="https://onedrive.live.com/embed?resid=91EF77F7B9E9A70C%21343371&authkey=%21AOPMZXq3wmaQDQI&width=1024" width="1024" height="auto" />
+_오늘도 고생하는 텐트_
+
+<img src="https://onedrive.live.com/embed?resid=91EF77F7B9E9A70C%21343315&authkey=%21AK5dFySifIVeQxY&width=1024" width="1024" height="auto" />
+_취침등_
+
+### 다음날
 
 <img src="https://onedrive.live.com/embed?resid=91EF77F7B9E9A70C%21343321&authkey=%21AMKg7Mm6E7bHuRk&height=1024" width="auto" height="1024" />
 _청초호 유원지 시계탑. 예쁘게 잘 꾸며놓았음_

@@ -7,7 +7,7 @@ categories: [Daily, Camping] # 최대 2개 가능
 tags: [jangtaesan, forest, fall]     # 태그는 항상 소문자로 작성할 것
 
 image:
-    path: https://onedrive.live.com/embed?resid=91EF77F7B9E9A70C%21343239&authkey=%21AIRSg0Ovln_sptw&width=1024
+    path: https://image.foresttrip.go.kr/frip/2fe4c7f4-53c3-42c0-a80d-a8e91db9aa3f.jpg
     alt: 
     
 
@@ -41,6 +41,9 @@ published: true
 
 <img src="https://onedrive.live.com/embed?resid=91EF77F7B9E9A70C%21343248&authkey=%21AMJmZlvCBKAQ5o4&width=1024" width="1024" height="auto" />
 _장태산 휴양림 입구. 오른쪽이 캠핑장_
+
+<img src="https://onedrive.live.com/embed?resid=91EF77F7B9E9A70C%21343239&authkey=%21AIRSg0Ovln_sptw&width=1024" width="1024" height="auto" />
+_늦게 후다닥 친 텐트. 이제 30분컷 가능_
 
 <img src="https://onedrive.live.com/embed?resid=91EF77F7B9E9A70C%21343241&authkey=%21AJCPoPNpW3icLCE&width=1024" width="1024" height="auto" />
 _먹거리. 간단히 때우기엔 좋았다_
