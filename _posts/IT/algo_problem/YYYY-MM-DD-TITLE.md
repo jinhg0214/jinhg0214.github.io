@@ -1,0 +1,27 @@
+---
+title: "TEMPLATE"
+# excerpt : 요약
+date: YYYY-MM-DD HH:MM:SS +0900
+# last_modified_at: 
+categories: [Algorithm, Problem Solving]  # 최대 2개 가능
+tags: [TAG]     # 태그는 항상 소문자로 작성할 것
+toc: true
+comment: false
+published: false
+---
+
+''' 세줄 요약 '''
+
+# 1. 문제
+---
+### 입력
+### 출력
+
+# 2. 문제 분석
+---
+### 필요변수
+### 주의점
+### 알고리즘
+
+# 3. 소스코드
+---
