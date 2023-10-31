@@ -4,15 +4,15 @@
 
 @mixin dark-scheme {
   /* Framework color */
-  --main-bg: rgb(27, 27, 30);
-  --mask-bg: rgb(68, 69, 70);
-  --main-border-color: rgb(44, 45, 45);
+  --main-bg: #04010A;
+  --mask-bg: #F2F3EF;
+  --main-border-color: #F24405;
 
   /* Common color */
-  --text-color: rgb(175, 176, 177);
+  --text-color: #F2F3EF;
   --text-muted-color: #868686;
   --text-muted-hightlight-color: #aeaeae;
-  --heading-color: #cccccc;
+  --heading-color: #F2F3EF;
   --label-color: #a7a7a7;
   --blockquote-border-color: rgb(66, 66, 66);
   --blockquote-text-color: #868686;
@@ -35,7 +35,7 @@
   );
 
   /* Sidebar */
-  --site-title-color: #717070;
+  --site-title-color: #F2F3EF;
   --site-subtitle-color: #868686;
   --sidebar-bg: #1e1e1e;
   --sidebar-border-color: #292929;

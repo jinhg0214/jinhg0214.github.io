@@ -4,7 +4,7 @@ title: "Hello World"
 date: 2023-10-16 
 # last_modified_at: 
 categories: [IT, WEB] # 최대 2개 가능
-tags: [TAG]     # 태그는 항상 소문자로 작성할 것
+tags: [gitpage, notion]     # 태그는 항상 소문자로 작성할 것
 toc: true
 comment: false
 published: true
