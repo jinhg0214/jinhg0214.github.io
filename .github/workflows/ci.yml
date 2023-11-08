@@ -21,7 +21,7 @@ jobs:
 
     strategy:
       matrix:
-        ruby: [2.7, 3]
+        ruby: [3.1]
 
     steps:
       - name: Checkout
@@ -32,7 +32,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: none # ${{ matrix.ruby }}
+          ruby-version: ${{ matrix.ruby }}
           bundler: "Gemfile.lock"
           bundler-cache: true
 
