@@ -32,7 +32,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          # ruby-version: ${{ matrix.ruby }}
+          ruby-version: none # ${{ matrix.ruby }}
           bundler: "Gemfile.lock"
           bundler-cache: true
 
