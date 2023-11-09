@@ -10,7 +10,7 @@ comment: false
 published: true
 ---
 
-최장 공통 문자열(Longest Common Substring) 과는 다른
+[최장 공통 문자열(Longest Common Substring)](https://jinhg0214.github.io/posts/substring/) 과는 다른
 
 최장 공통 부분 수열(Longest Common Subsequence)
 
