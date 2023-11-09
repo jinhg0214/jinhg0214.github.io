@@ -1,5 +1,5 @@
 ---
-title: "최장 공통 부분 수열(Longest Common Subsequence)"
+title: "LCS 최장 공통 부분 수열(Longest Common Subsequence)"
 # excerpt : 요약
 date: 2023-11-09 00:04:23 +0900
 # last_modified_at: 
