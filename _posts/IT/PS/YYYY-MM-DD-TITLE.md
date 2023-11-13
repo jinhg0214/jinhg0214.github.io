@@ -1,6 +1,5 @@
 ---
 title: "TEMPLATE"
-# excerpt : 요약
 date: YYYY-MM-DD HH:MM:SS +0900
 # last_modified_at: 
 categories: [Algorithm, Problem Solving]  # 최대 2개 가능
