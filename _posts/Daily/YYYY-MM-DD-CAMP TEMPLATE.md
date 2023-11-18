@@ -13,6 +13,8 @@ image:
     alt: 
 ---
 
+- 참여 인원 : N명(나, )
+- 기간 : 2023-06-03 ~ 2023-06-04
 
 https://jekyllrb.com/docs/front-matter/
 
