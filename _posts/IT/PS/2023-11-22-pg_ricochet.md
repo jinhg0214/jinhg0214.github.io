@@ -41,9 +41,9 @@ dy, dx를 어떻게 갱신할 것인가가 포인트
 
 기본적인 변수들은 BFS와 같음
 
-맵 정보를 저장할 `int map[y][x]`, 방문표시 처리를 할 `int visited[y][x]`
+맵 정보를 저장할 `char map[y][x]`, 방문표시 처리를 할 `int visited[y][x]`
 
-좌표 구조체 `struct node`
+좌표 구조체 `struct node` 대신 `pair<int, int>`를 이용해 좌표 처리
 
 4방향 표현을 위한 `direct[4][2]`
 
@@ -82,111 +82,86 @@ dy, dx를 어떻게 갱신할 것인가가 포인트
 
 using namespace std;
 
-int map[101][101];
-int visited[101][101];
-int y_size;
-int x_size;
+#define MAX 101
 
-struct Node {
-    int y;
-    int x;
-    int level = 0;
-};
+char map[MAX][MAX]; // 맵 저장용
+int visited[MAX][MAX]; // 방문처리 + 몇번 이동했는지 체크용
+int N, M; // 맵 사이즈 저장용 
+int start_y, start_x, dest_y, dest_x; // 시작지점과 도착지점 표시 
+int direct[4][2] = {0,1,1,0,0,-1,-1,0};
 
-Node robot, target;
-
-int direct[4][2] = { 0,1,1,0,0,-1,-1,0 };
-
-// 입력을 처리하는 함수
-// 입력 정보들을 받아 map과 시작지점, 도착지점을 세팅한다
-void Input(vector<string> board) {
-    y_size = board.size();
-    x_size = board[0].size();
-
-    for (int y = 0; y < y_size; y++) {
-        for (int x = 0; x < x_size; x++) {
-            char ch = board[y][x];
-            if (ch == '.') { map[y][x] = 0; }
-            // 로봇 시작지점
-            else if (ch == 'R') {
-                robot.y = y;
-                robot.x = x;
-                robot.level = 0;
-                map[y][x] = 5;
-            }
-            // 목표 지점
-            else if (ch == 'G') {
-                target.y = y;
-                target.x = x;
-                map[y][x] = 9;
-            }
-            // 벽
-            else if (ch == 'D') {
-                map[y][x] = 1;
-            }
-        }
-    }
-}
-
-// 시작지점부터 목표지점의 최단거리를 찾는 BFS 함수
 int BFS() {
-    queue<Node> qu;
-    qu.push({ robot });
-    visited[robot.y][robot.x] = 1; // 시작지점도 넣어주어야 헤메지않음
+	queue<pair<int, int>> qu;
+	qu.push({ start_y, start_x });
+	visited[start_y][start_x] = 1;
 
-    while (!qu.empty()) {
-        Node now = qu.front();
-        qu.pop();
+	while (!qu.empty()) {
+		pair<int, int> now = qu.front();
+		qu.pop();
+	
+		if (now.first == dest_y && now.second == dest_x) {
+			return visited[now.first][now.second] ;
+		}
 
-        for (int t = 0; t < 4; t++) {
-            // === 이 부분이 제일 중요함======================================================
-            int dy = now.y;
-            int dx = now.x;
-           
-            // 경계 또는 벽을 만날때까지 쭉 이동 
-            while (true) {
-                if (dy < 0 || dx < 0 || dy >= y_size || dx >= x_size) break; // 맵 경계처리
-                if (map[dy][dx] == 1) break; // 벽이라면 더이상 진행 불가
+		for (int t = 0; t < 4; t++) {
+			int dy = now.first;
+			int dx = now.second;
 
-                dy += direct[t][0];
-                dx += direct[t][1];
-            }
-            // 경계 또는 벽을 만나서 탈출했기 때문에 다시 한칸 뒤로
-            dy -= direct[t][0];
-            dx -= direct[t][1];
+			while (true) {
+				dy += direct[t][0];
+				dx += direct[t][1];
 
-            // 목표 지점이라면 now의 레벨에 +1 해준다(dy, dx좌표 기준이므로)
-            if (dy == target.y && dx == target.x) {
-                return now.level + 1;
-            }
-            // ================================================================================
+				if (dy < 0 || dx < 0 || dy >= N || dx >= M) break;
+				if (map[dy][dx] == 'D') break;
+			}
 
-            if (visited[dy][dx]) continue; // 이미 방문한곳 처리
+			dy -= direct[t][0];
+			dx -= direct[t][1];
 
-            visited[dy][dx] = now.level + 1;
-            qu.push({ dy, dx, now.level + 1 });
-        }
-    }
-    return -1;
+			if (visited[dy][dx]) continue;
+
+			visited[dy][dx] = visited[now.first][now.second] + 1;
+			qu.push({ dy, dx });
+		}
+	}
+	return 0;
 }
 
-int main() {
-    int answer = 0;
+int main(){
+    // 비쥬얼 스튜디오에서 코딩해서 이렇게 수정했음 
+	freopen_s(new FILE*, "input.txt", "r", stdin);
+	vector<string> board = {
+		"...D..R",
+		".D.G...",
+		"....D.D",
+		"D....D.",
+		"..D...."
+	};
 
-    vector<string> board = {
-        "...D..R",
-        ".D.G...",
-        "....D.D",
-        "D....D.",
-        "..D...."
-    };
-
-    Input(board);
-
-    cout << BFS();
-
-    return answer;
+    // 입력받기
+	N = board.size();
+	M = board[0].size();
+	for (int y = 0; y < N; y++) {
+		for (int x = 0; x < M; x++) {
+			map[y][x] = board[y][x];
+			if (map[y][x] == 'R') {
+				start_y = y;
+				start_x = x;
+			}
+			else if (map[y][x] == 'G') {
+				dest_y = y;
+				dest_x = x;
+			}
+		}
+	}
+    // BFS 
+	cout << BFS() - 1; 
+    // -1 해주는 이유?
+    // 따로 이동횟수를 카운팅하는 변수를 사용하지 않고, 방문체크 배열에 같이 기록함
+    // 첫 시작부터 한칸으로 체크되므로, 도착시 -1 해줘야 올바른 값이 출력됨
+	return 0;
 }
+
 ```
 
 프로그래머스에서 IDE 없이 직접 푸는게 아직 익숙하지 않아
