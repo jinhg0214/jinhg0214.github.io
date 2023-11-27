@@ -9,7 +9,7 @@ comment: false
 published: true
 ---
 
-[https://jinhg0214.github.io/posts/bj_1990/](https://jinhg0214.github.io/posts/bj_1990/)를 복귀하던 중
+[https://jinhg0214.github.io/posts/bj_1990/](https://jinhg0214.github.io/posts/bj_1990/)를 복기하던 중
 
 소수 판별을 개선하는 방법도 있는데
 
