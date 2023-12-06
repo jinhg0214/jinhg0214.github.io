@@ -3,7 +3,7 @@ title: "알고리즘 공부 리스트 및 순서 "
 # excerpt : 요약
 date: 2023-11-01 19:01:30 +0900
 # last_modified_at: 
-categories: [Algorithm, Problem Solving]  # 최대 2개 가능
+categories: [Algorithm, Theory]  # 최대 2개 가능
 tags: [study, map]     # 태그는 항상 소문자로 작성할 것
 toc: true
 comment: false

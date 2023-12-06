@@ -2,8 +2,8 @@
 title: "Binary Search"
 date: 2023-12-06 20:30:00 +0900
 # last_modified_at: 
-categories: [Algorithm, Problem Solving]  # 최대 2개 가능
-tags: [binarysearch, cpp, stl, python]     # 태그는 항상 소문자로 작성할 것
+categories: [Algorithm, Theory]  # 최대 2개 가능
+tags: [search, binarysearch, cpp, stl, python]     # 태그는 항상 소문자로 작성할 것
 toc: true
 comment: false
 published: true

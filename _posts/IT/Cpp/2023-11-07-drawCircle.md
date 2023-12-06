@@ -3,7 +3,7 @@ title: "원을 그리는 방법"
 # excerpt : 요약
 date: 2023-11-07 14:37:25 +0900
 # last_modified_at: 
-categories: [Algorithm, Problem Solving]  # 최대 2개 가능
+categories: [Algorithm, cpp]  # 최대 2개 가능
 tags: [circle, computergraphics, midpoint, bresenham]     # 태그는 항상 소문자로 작성할 것
 toc: true
 comment: false
