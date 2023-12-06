@@ -1,12 +1,11 @@
 ---
 title: "TEMPLATE"
 date: YYYY-MM-DD HH:MM:SS +0900
-# last_modified_at: 
 categories: [Algorithm, Problem Solving]  # 최대 2개 가능
 tags: [TAG]     # 태그는 항상 소문자로 작성할 것
 toc: true
 comment: false
-published: false
+published: false ############################# 푸쉬할때 꼭 수정할 것!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ---
 
 ''' 세줄 요약 '''
