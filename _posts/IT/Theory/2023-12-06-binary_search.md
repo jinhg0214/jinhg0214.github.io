@@ -116,6 +116,8 @@ Python에서는 `bisect`라는 이진 탐색 라이브러리 지원
 
 - `bisect_left(a, x)` : 정렬된 순서를 유지하면서 리스트 a에 데이터 x를 삽입할 가장 왼쪽 인덱스를 찾는 메소드
 - `bisect_right(a, x)` : 정렬된 순서를 유지하도록 리스트 a에 데이터 x를 삽입할 가장 오른쪽 인덱스를 찾는 메소드
+
+
 ```python
 from bisect import bisect_left, bisect_right
 a = [1, 2, 4, 4, 8]
