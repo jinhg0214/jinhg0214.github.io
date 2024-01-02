@@ -43,10 +43,12 @@ string my_to_lower(string str) {
 template< class InputIt, class OutputIt, class UnaryOperation > 
 OutputIt transform( InputIt first1, InputIt last1, OutputIt d_first, UnaryOperation unary_op );
 ```
+
 - 로 정의되어있음
 - input을 사용자가 정의한 원하는 방법에 따라 output으로 바꿔주는 함수
 - 간단히 설명하면
-```cpp
+
+```
 Output transform(first 시작점, first 끝점, 저장할 변수의 시작점, 변환할 함수)
 ```
 
