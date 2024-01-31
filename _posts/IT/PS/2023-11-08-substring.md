@@ -46,8 +46,11 @@ CA, CADA, ADABR, 빈 문자열 등이 있다.
 
 ![image](https://github.com/jinhg0214/jinhg0214.github.io/assets/70011316/f79d3b9f-ab16-4292-8829-8377d301569b)
 
-    - E열은 같은 문자가 없어서 모두 0으로 처리됨
-    - C열은 6번째 행이 C로 같아 `map[1][4] + 1` 로 1이 저장됨
+- E열은 같은 문자가 없어서 모두 0으로 처리됨
+
+- C열은 6번째 행이 C로 같아 `map[1][4] + 1` 로 1이 저장됨
+
+C열의 6번째 행이 1인데, 그 다음 A열의 7행도 일치하므로, 이를 +1해준다
 
 이런식으로 표를 끝까지 채운다
 
@@ -108,7 +111,7 @@ int main() {
 				map[y][x] = 0;
 			}
 			// 문자가 같으면 
-			else if (str1[x] == str1[y]) {
+			else if (str1[x] == str2[y]) {
 				map[y][x] = map[y - 1][x - 1] + 1;
 				if (max_len < map[y][x]) {
 					max_len = map[y][x];
@@ -125,6 +128,55 @@ int main() {
 
 	return 0;
 }
+```
+
+2024-01-31 수정본
+
+기존의 코드에서는 y, x가 n일때 `str1[str1.size()]` 와 같이 접근하는 문제가 있었으나
+
+통과해서 그냥 모르고 넘어갔었음
+
+복습하다가 확인해보니 `str1[str.size()]`가 오류를 뱉는게 아니라 `' '`을 출력해서 
+
+예제 2번의 전혀 일치하는 문자가 없는 경우에도 1을 출력하는 오류가 있었음
+
+이를 수정
+
+```cpp
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+#define MAX 4001
+
+int matrix[MAX][MAX]; // 0으로 초기화 되어있음
+
+int main() {
+	freopen_s(new FILE*, "input.txt", "r", stdin);
+	string first, second;
+	cin >> first >> second;
+
+	int max_len = 0;
+
+	for (int i = 0; i <= second.size(); i++) {
+		for (int j = 0; j <= first.size(); j++) {
+			if (i == 0 || j == 0) continue; 
+			
+			if (first[j-1] == second[i-1]) {
+				matrix[i][j] = matrix[i - 1][j - 1] + 1;
+				max_len = max(max_len, matrix[i][j]);
+			}
+		}
+	}
+
+	cout << max_len;
+	return 0;
+}
+
+
 ```
 
 참조 : 
