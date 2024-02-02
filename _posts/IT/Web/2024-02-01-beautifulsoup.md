@@ -1,6 +1,6 @@
 ---
 title: "웹 크롤링과 웹 스크래핑, Beautiful Soup와 Selenium"
-date: 2024-02-01 +0900
+date: 2024-02-01 18:00:00 +0900
 categories: [IT, Web]  # 최대 2개 가능
 tags: [scrapping, crawler, crawling, python, beautifulsoup, requests, selenium]     # 태그는 항상 소문자로 작성할 것
 toc: true
