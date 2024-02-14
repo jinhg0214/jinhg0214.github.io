@@ -4,7 +4,7 @@ title: "레이저 바실리스크 얼티메이트 휠튐증상 수리"
 date: 2024-02-14 10:41:00 +0900
 # last_modified_at: 
 categories: [IT, ETC] # 최대 2개 가능
-tags: [razer, basilisk ultimate]     # 태그는 항상 소문자로 작성할 것
+tags: [razer, basilisk ultimate, repair, mouse]     # 태그는 항상 소문자로 작성할 것
 toc: true
 comment: false
 published: true
