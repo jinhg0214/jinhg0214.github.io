@@ -73,17 +73,20 @@ cin.ignore(4);
 getline(cin, s);
 cout << s << endl;
 ```
+
+```
 입력 :
 3
 a
 bcd
 출력 : cd
+```
 
 n에 3을 저장한뒤의 입력 버퍼 상황을 보면
 
-`[\n][a][\n][bcd\n]` 이 남아있음 ([]는 편의상 넣음)
+`[\n][a][\n][bcd\n]` 이 남아있음 (`[]`는 편의상 넣음)
 
-`cin.ignore(4)`에 의해 `getline(cin, s);` 수행시, `[\n][a][\n][b]`는 무시되고 
+`cin.ignore(4)`에 의해 `getline(cin, s);` 수행시, 버퍼에 남아있는 단어 중 `[\n][a][\n][b]`는 무시되고 
 
 `cd\n`만 s에 담기게 된다
 
