@@ -6,6 +6,11 @@ tags: [input, output, cin, getline, ignore]     # 태그는 항상 소문자로 
 toc: true
 comment: false
 published: true
+image:
+	path: "https://media.istockphoto.com/id/1176788002/ko/%EC%82%AC%EC%A7%84/%EC%A2%8B%EC%9D%80-%EB%A7%A4%EB%A0%A5%EC%A0%81%EC%9D%B8-%EC%9E%90%EA%B7%B9-%EC%9D%98-%EC%B4%88%EC%83%81%ED%99%94-%EC%A7%9C%EC%A6%9D-%EB%82%9C%EC%9D%8C-%EC%8B%AC%EC%88%A0-%EC%8B%AC%EC%88%A0-%EB%B6%88%EB%A7%8C-%EC%82%AC%EB%9E%8C%EB%93%A4%EC%9D%B4-%EB%B6%80%EC%A0%95%EC%A0%81%EC%9D%B8-%EA%B0%90%EC%A0%95-%EB%B6%84%EB%85%B8-%EB%A5%BC-%ED%91%9C%ED%98%84%ED%95%98%EB%8A%94-%EB%B6%88%EB%A7%8C%EC%A1%B1-%EC%9D%B8%EC%88%98-%EC%8B%A4%ED%8C%A8-%EC%8B%A4%ED%8C%A8-%EC%8B%A4%ED%8C%A8-%EC%97%90-%EA%B3%A0%EB%A6%BD-%EB%90%9C-%EB%B0%9D%EC%9D%80-%EC%83%9D%EC%83%9D%ED%95%9C-%EA%B4%91%ED%83%9D-%EB%85%B8%EB%9E%80%EC%83%89-%EB%B0%B0%EA%B2%BD.jpg?s=1024x1024&w=is&k=20&c=CYKAdcA2swetj_yfHQeHbYTLyTVvmVNc606bMvvYylA="
+	alt:
+
+
 ---
 
 # 상황
