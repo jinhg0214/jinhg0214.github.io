@@ -1,6 +1,6 @@
 ---
 title: "Obsidian Git 플러그인 사용법"
-date: 2024-0218 22:10:10 +0900
+date: 2024-02-18 22:10:10 +0900
 categories: [IT, Utility]  # 최대 2개 가능
 tags: [obsidian, git, commit, push]     # 태그는 항상 소문자로 작성할 것
 toc: true
