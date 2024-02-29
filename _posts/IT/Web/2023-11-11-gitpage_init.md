@@ -2,7 +2,7 @@
 title: "깃 페이지 초기 세팅 복원 방법"
 date: 2023-11-11 22:43:00 +0900
 # last_modified_at: 
-categories: [IT, WEB] # 최대 2개 가능
+categories: [IT, Web] # 최대 2개 가능
 tags: [gitpage, format, initialize]    
 toc: true
 comment: false

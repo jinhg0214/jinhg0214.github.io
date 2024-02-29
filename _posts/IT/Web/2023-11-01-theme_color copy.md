@@ -3,7 +3,7 @@ title: "Jekyll Chirpy 테마 색상 변경법"
 # excerpt : 요약
 date: 2023-11-01 00:10:00 +0900
 # last_modified_at: 
-categories: [IT, WEB] # 최대 2개 가능
+categories: [IT, Web] # 최대 2개 가능
 tags: [gitpage, chirpy, theme, color]     # 태그는 항상 소문자로 작성할 것
 toc: true
 comment: false
