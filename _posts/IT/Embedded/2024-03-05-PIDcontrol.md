@@ -60,7 +60,10 @@ image:
 
 
 참조
-[PID 제어기 - Wiki](https://ko.wikipedia.org/wiki/PID_%EC%A0%9C%EC%96%B4%EA%B8%B0)
-[PID제어란!!](https://blog.naver.com/sppe12/110085291875)
-[고전 제어의 절대강자 PID Control(제어) A to Z - 1편](https://hyein-robotics.tistory.com/entry/%EA%B3%A0%EC%A0%84-%EC%A0%9C%EC%96%B4%EC%9D%98-%EC%A0%88%EB%8C%80-%EA%B0%95%EC%9E%90-PID-Control%EC%A0%9C%EC%96%B4-A-to-Z-1-%ED%8E%B8)
-[60. PID 제어 란?(비례/적분/미분)](https://m.blog.naver.com/jsrhim516/222015965919)
+[PID 제어기 - Wiki](https://ko.wikipedia.org/wiki/PID_%EC%A0%9C%EC%96%B4%EA%B8%B0)   
+
+[PID제어란!!](https://blog.naver.com/sppe12/110085291875)    
+
+[고전 제어의 절대강자 PID Control(제어) A to Z - 1편](https://hyein-robotics.tistory.com/entry/%EA%B3%A0%EC%A0%84-%EC%A0%9C%EC%96%B4%EC%9D%98-%EC%A0%88%EB%8C%80-%EA%B0%95%EC%9E%90-PID-Control%EC%A0%9C%EC%96%B4-A-to-Z-1-%ED%8E%B8)   
+
+[60. PID 제어 란?(비례/적분/미분)](https://m.blog.naver.com/jsrhim516/222015965919)   
