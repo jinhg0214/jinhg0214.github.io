@@ -1,6 +1,6 @@
 ---
 title: "운영체제 2장 - 시스템 호출"
-date: 2024-03-05 17:00:00 +0900
+date: 2024-03-06 17:00:00 +0900
 categories: [Computer, OS]  # 최대 2개 가능
 tags: [systemcall, api, ]     # 태그는 항상 소문자로 작성할 것
 toc: true
