@@ -1,5 +1,5 @@
 ---
-title: "220504 강동 그린웨이 캠핑장"
+title: "2022-05-04 강동 그린웨이 캠핑장"
 # excerpt : 요약
 date: 2023-10-20
 # last_modified_at: 

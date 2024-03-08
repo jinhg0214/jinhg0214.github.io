@@ -1,5 +1,5 @@
 ---
-title: "221022 홍천"
+title: "2022-10-22 홍천"
 # excerpt : 요약
 date: 2023-10-20 18:00:00 +0900
 # last_modified_at: 
