@@ -14,10 +14,15 @@ image:
 # 목차
 ---
 3.1 프로세스 개념
+
 3.2 프로세스 스케쥴링 (5장에서 상세히)
+
 3.3 프로세스 연산
+
 3.4 프로세스간 통신
+
 3.5 IPC 시스탐 사례 - UNIX의 공유 메모리 함수
+
 3.6 클라이언트-서버 시스템에서의 통신
 
 # 3.1 프로세스 개념
@@ -69,6 +74,5 @@ image:
 	- Process state, Program Counter(PC), CPU registers, Memory-management 정보, CPU scheduling 정보, I/O status 정보, the list of allocated I/O devices, the list of I/O requests. the list of open files … 
 - 프로세스 간  CPU Switch
 	 ![[Pasted image 20240315172914.png]]
-	 - 프로세스 0의 PCB_0 정보를 저장 후, 프로세스 1의 PCB_1를 가져옴
+	- 프로세스 0의 PCB_0 정보를 저장 후, 프로세스 1의 PCB_1를 가져옴
 	- 프로세스 0의 차례가 오면 다시 저장후 가져옴
-	- 
