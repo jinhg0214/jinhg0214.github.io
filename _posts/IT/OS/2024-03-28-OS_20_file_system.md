@@ -1,6 +1,6 @@
 ---
 title: "운영체제 10장 - 파일 시스템"
-date: 2024-03-28 16:22:00 +0900
+date: 2024-03-29 13:22:00 +0900
 categories: [Computer, OS]  # 최대 2개 가능
 tags: [file, filesystem, disk, volume, partition, directory]     # 태그는 항상 소문자로 작성할 것
 toc: true
@@ -132,7 +132,7 @@ image:
 3. 파일시스템은 저장된 mount point에 마운트됨
 ```
 
-### 10.5 File 공유
+## 10.5 File 공유
 ---
 
 - 다수의 사용자의 파일 공유
