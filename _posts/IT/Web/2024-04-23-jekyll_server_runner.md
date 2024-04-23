@@ -1,6 +1,6 @@
 ---
 title: "Jekyll 서버 자동 실행 bat 파일 만들기"
-date: 2024-04-23 09:00:00 +0900
+date: 2024-04-23 10:00:00 +0900
 categories: [IT, web]  # 최대 2개 가능
 tags: [jekyll, windows, bat]     # 태그는 항상 소문자로 작성할 것
 toc: true
