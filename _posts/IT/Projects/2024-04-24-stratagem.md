@@ -1,7 +1,7 @@
 ---
 title: "헬다이버즈2 스트라타젬 프로젝트"
 date: 2024-04-24 17:30:00 +0900
-categories: [IT, Embedded]  # 최대 2개 가능
+categories: [IT, project]  # 최대 2개 가능
 tags: [helldivers, game, arduino, keyboard]    
 toc: true
 comment: false
