@@ -83,20 +83,20 @@ image:
 - 템플릿 구조 
 	- 일반적으로 5~6문장  정도 답변.
 	- 사진의 핵심적인 것을 묘사하는 것에 집중 할 것
-	1. 서론 : 이 사진은 어디서 찍힌 사진으로 보입니다
-		- `This is a picture taken indoors or outdoors`. `at pc cafe` , `at office`
-		- This photo seems to haven been taken ~~
-	2. 전체적인 사진 요약 : 대표적인 사물/사람
-		- `The first thing i can see from this picture is 사람/사물`
-		- 인물의 헤어스타일, 의상 등
-		- at a table
-	3. 세부사항 (3문장)
-		- `In the foreground of the picture, there/are 사람/사물, I can see 사람/사물`
-		- `In the middle of the picture, `
-		- `On the side of the picture,` On the left side, on the right side
-		- `In the background of the picture,`
-	4. 마무리(시간 남으면)
-		- `Overall, it seems like, ~` 
+1. 서론 : 이 사진은 어디서 찍힌 사진으로 보입니다
+	- `This is a picture taken indoors or outdoors`. `at pc cafe` , `at office`
+	- This photo seems to haven been taken ~~
+2. 전체적인 사진 요약 : 대표적인 사물/사람
+	- `The first thing i can see from this picture is 사람/사물`
+	- 인물의 헤어스타일, 의상 등
+	- at a table
+3. 세부사항 (3문장)
+	- `In the foreground of the picture, there/are 사람/사물, I can see 사람/사물`
+	- `In the middle of the picture, `
+	- `On the side of the picture,` On the left side, on the right side
+	- `In the background of the picture,`
+4. 마무리(시간 남으면)
+	- `Overall, it seems like, ~` 
 - 유형 1) 1인 묘사
 - 유형 2) 2인 묘사
 	- 공통묘사 묶어서 표현할 것
@@ -126,16 +126,16 @@ image:
 	- 부정하는것보다 긍정하는게 대답하기 쉬움
 	- 자신의 경험을 실제로 말하지 않고, 지어내서 말해도 상관없음
 - 5, 6번 유형(간단한 질문)
-	1. when was the last time you 과거동사 ~?
-		- The last time I 과거동사 was two weeks ago / yesterday / last year ...
-	2. How often / frequently -?
-		- twice a week / almost every day / once in a while
-	3. Where do you usually buy / purchase ~?
-		- on the internet / at a shopping mall / at a department store. 등
-	4. 의문사가 나오지 않는 문제
-		- What kind / type / sort / genre of ~ 어떤 종류를 묻는 문제
-		- 빠르게 3초 안에 정하고, 생각나는 답변 말하기
-	5. Do you는 Yes로 대답하는게 답변하기 편함
+1. when was the last time you 과거동사 ~?
+	- The last time I 과거동사 was two weeks ago / yesterday / last year ...
+2. How often / frequently -?
+	- twice a week / almost every day / once in a while
+3. Where do you usually buy / purchase ~?
+	- on the internet / at a shopping mall / at a department store. 등
+4. 의문사가 나오지 않는 문제
+	- What kind / type / sort / genre of ~ 어떤 종류를 묻는 문제
+	- 빠르게 3초 안에 정하고, 생각나는 답변 말하기
+5. Do you는 Yes로 대답하는게 답변하기 편함
 - 7번 유형 (의견 / 선호도 / 장단점 / 옵션)
 	- 결론 , 이유1, 이유2 로 답변하면 됨
 	- 이유가 한가지밖에 생각 안나면, 이유에 대한 경험을 서술
