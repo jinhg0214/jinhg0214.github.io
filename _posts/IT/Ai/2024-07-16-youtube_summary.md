@@ -1,11 +1,11 @@
 ---
 title: "ChatGPT로 유튜브 영상 요약하기"
-date: 2024-07-16 13:51:00 +0900
+date: 2024-07-16 14:00:00 +0900
 categories: [IT, Ai]  # 최대 2개 가능
 tags: [chatgpt, plugin, youtube, productivity, summary]     # 태그는 항상 소문자로 작성할 것
 toc: true
 comment: false
-published: false
+published: true
 image:
     path: "https://miro.medium.com/v2/resize:fit:1200/1*xOPEyGvaGKRja-k3eDyCMw.png"
     alt: 
