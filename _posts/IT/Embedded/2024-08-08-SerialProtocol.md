@@ -44,12 +44,14 @@ image:
 
 ## 4. 직렬 통신 구조의 예
 ---
-- UART
+- [**UART**](https://jinhg0214.github.io/posts/UART/)
+- **I²C**
+- **SPI**
+- **SATA**
 - 모스 부호, 전보
 - RS-232
 - RS-422
 - RS-485
-- I²C
 - ARINC 818
 - 범용 직렬 버스(USB)
 - IEEE 1394
@@ -60,7 +62,6 @@ image:
 - DMX512
 - SDI-12
 - 직렬 결합 SCSI
-- SATA
 - 스페이스와이어
 - PCI 익스프레스
 - SONET, SDH
