@@ -1,22 +1,25 @@
 ---
-title: "우선순위 큐"
+title: "C++ 우선순위 큐"
 date: 2024-11-09 22:30:00 +0900
 categories: [C, Library]  
 tags: [algorithm, datastructure, queue, sort]     
 toc: true
 comment: false
-published: true
+published: false
 image:
     path: "https://dotnettrickscloud.blob.core.windows.net/article/data%20structures/3720240402230348.com-png-to-webp-converter"
     alt: 
 ---
 
-알고리즘 문제를 풀다보면, 우선순위 큐를 사용해야할 경우가 종종 생긴다
+알고리즘 문제를 풀다보면, C++에서 우선순위 큐를 사용해야할 경우가 종종 생긴다
 
 이를 기록하기 위해 정리한 글
 
 ## 우선순위 큐
-- 구현시 Heap을 사용함
+- C++에서 vector와 같은 container adaptor의 한 종류
+- 큐의 한 종류로 `#include <queue>`에 포함되어있음
+- 모든 원소 중에서 가장 큰 값이 Top을 유지하도록 설계된 컨테이너
+- 내부적으로는 Heap 자료 구조를 사용하고 있음
 	- 각 원소가 우선순위를 가지고 있어, 우선순위를 갖는 원소가 앞쪽에 오게 됨
 - 일종의 자동으로 정렬되는 큐라고 생각하면 편함
 
@@ -48,7 +51,7 @@ cpp에서 우선순위 큐는 기본적으로 최대힙으로 동작한다
 
 ```cpp
 priority_queue<int> pq;
-// priority_queue<int, vector<int>, less<int>> pq; 와 같음
+// priority_queue<int, vector<int>, less<int>> pq; 와 같음 // std::less<>이용
 
 pq.push(3);
 pq.push(2);
@@ -56,37 +59,36 @@ pq.push(7);
 pq.push(2);
 pq.push(5);
 
-// pq : 7 5 3 2 2 
 ```
-최대힙, 내림차순이므로 다음과 같이 정렬된다
+최대힙, 내림차순이므로 `pq : 7 5 3 2 2` 로 정렬된다
 
 만약 오름차순으로 출력하고 싶다면
 
 ```cpp
-priority_queue<int, vector<int, greater<int> > pq; // 선언시 오름차순 정렬로 선언
+priority_queue<int, vector<int, greater<int> > pq; // 선언시 오름차순 정렬로 선언 // std::greater<> 이용
 
 pq.push(3);
 pq.push(2);
 pq.push(7);
 pq.push(2);
 pq.push(5);
-
-// pq : 2 2 3 5 7
 ```
 
-최소힙, 오름차순이므로 다음과 같이 정렬된다
+최소힙, 오름차순이므로 `pq : 2 2 3 5 7` 로 정렬된다
 
 ### 2. 사용자 정의 비교 함수 구현 
 
-하나의 원소를 비교할 때는 `less<int>, greater<int>` 를 써도 충분하지만
+하나의 원소를 비교할 때는 `std::less<>, std::greater<>` 를 써도 충분하지만
 
 두개 이상의 원소를 비교할 때는 직접 비교 함수를 구현해야한다
+
+먼저 이해를 위해 하나의 원소를 정렬하는 비교함수를 구현해보자
 
 비교함수를 구현하는 것은 구조체 정렬 함수를 선언하는 것과 유사하다
 
 ```cpp
 bool operator()(int a, int b){
-	if(a ? b) return true;
+	if(a ? b) return true; 
 	else return false;
 	// return a ? b;
 }
@@ -99,9 +101,28 @@ bool operator()(int a, int b){
 
 **true를 반환하면 자리를 바꾸고, false를 반환하면 바꾸지 않는다**
 
+```cpp
+struct my_less{
+	bool operator()(int a, int b){
+		if(a < b) return true; // 작은게 앞에 오는게 맞다
+		else return false;
+		// return a < b; 와 같음
+	}
+}
+```
 - 오름차순이라면 작은 값이 앞으로 와야한다
 	- 작으면 바꾸지 않는다
 	- 즉 a < b일때 자리를 바꾸지 않으므로 `false`를, 그 외에는 `true`리턴
+
+```cpp
+struct my_greater {
+	bool operator()(int a, int b) {
+		if(a < b) return false; // 작은게 앞에 오면 교환 신청
+		else return true;
+		// return a > b; 와 같음
+	}
+};
+```
 
 - 내림차순이라면 큰 값이 앞으로 와야한다
 	- 작다면 바꿔야한다
@@ -110,28 +131,6 @@ bool operator()(int a, int b){
 이를 이용해 하나의 원소를 정렬하는 `less<int>`와 `greater<int>`를 직접 구현해본다
 
 ```cpp
-#include <iostream>
-#include <queue>
-#include <vector>
-
-using namespace std;
-
-struct my_lesser{
-	bool operator()(int a, int b){
-		if(a < b) return true;
-		else return false;
-		// return a < b; 와 같음
-	}
-}
-
-struct my_greater {
-	bool operator()(int a, int b) {
-		if(a < b) return false;
-		else return true;
-		// return a > b; 와 같음
-	}
-};
-
 int main() {
 	// 기본 : 루트가 최대인 우선순위 큐 (최대힙)
 	priority_queue<int> q1; 
@@ -148,18 +147,18 @@ int main() {
 }
 ```
 
-**비교함수에서 true를 반환하면 우선순위가 낮아 뒤로 간다는것을 명심할 것!!**
-
 ### 2. 두개 이상의 값 비교
 
 이를 응용하면 여러값을 정렬하는 우선순위 큐도 사용할 수 있다
 
 ```cpp
+
 struct item{
 	int val1;
 	int val2;
 	int val3;
-} a, b;
+};
+priority_queue<item, vector<item>, compare> pq;
 
 pq.push({1, 5, 10}); 
 pq.push({2, 4, 12});
@@ -168,9 +167,10 @@ pq.push({1, 5, 7});
 
 정렬 기준은
 
-1. val1는 작은 순서대로
-2. val2는 큰 순서대로
-3. val3은 작은 순서대로 
+1. val1는 오름차순
+2. val2는 내림차순
+3. val3은 오름차순으로 정렬할 것 
+
 {1, 6, 8}
 {1, 5, 7}
 {1, 5, 10}
