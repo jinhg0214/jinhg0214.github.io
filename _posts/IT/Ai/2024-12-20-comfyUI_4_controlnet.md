@@ -11,7 +11,7 @@ image:
     alt: 
 ---
 
-[ComfyUI 3. Image-to-image]https://jinhg0214.github.io/posts/comfyUI_3/)에 이어서 컨트롤넷을 사용하는 방법에 대해 알아보기
+[ComfyUI 3. Image-to-image](https://jinhg0214.github.io/posts/comfyUI_3/)에 이어서 컨트롤넷을 사용하는 방법에 대해 알아보기
 
 ## ComfyUI Manager
 ---
@@ -46,7 +46,7 @@ comfyUI를 설치하면서 git이 깔려있다는 가정하에
 2. Install Missing Custom Node : 현재 워크플로우에 없는 커스텀 노드 설치
 3. Model Manger : 체크포인트 모델 검색. 근데 CivitAI에서 직접 받는걸 추천함
 4. Update All : 커스텀 노드 모두 업데이트
-5. Restart
+5. Restart : comfyUI 재시작
 
 ## ControlNet
 ---
@@ -60,7 +60,6 @@ comfyUI를 설치하면서 git이 깔려있다는 가정하에
 랜덤한 결과물들만 출력 가능하고, 창작자 의도대로 제어가 불가능했기 때문
 
 ![raemn](https://github.com/user-attachments/assets/5a139145-012e-4455-9ad0-a9235b7f8e1a)
-
 *대충 이런느낌*
 
 그러나 컨트롤넷 모델을 사용하여 이러한 무작위성을 제어할 수 있게되어, 
