@@ -1,8 +1,9 @@
 ---
 title: "GitHub Actions 'Self-hosted Runner' 오류와 해결법"
 date: 2024-10-19 10:00:00 +0900
+modified: 2025-02-03 15:17:13:00 +0900
 categories: [IT, Web]  # 최대 2개 가능
-tags: [jekyll, github, cicd]     # 태그는 항상 소문자로 작성할 것
+tags: [jekyll, github, cicd, action]     # 태그는 항상 소문자로 작성할 것
 toc: true
 comment: false
 published: true
@@ -74,6 +75,21 @@ jobs:
 ![image](https://github.com/user-attachments/assets/94865283-20ec-41aa-896d-3298a5d1e062)
 
 이렇게 수정해주니 잘 빌드 된다
+
+## 내용 추가
+---
+
+2025-02-03 기준 빌드 에러가 또 발생했다
+
+`ruby/setup-ruby@086ffb1a2090c870a3f881cc91ea83aa4243d408` 는 특정 커밋(SHA)를 명시적으로 지정한 것인데
+
+github action이 2025-01-30을 기점으로 v3 지원을 중단과 관련이 있을 가능성이 높다
+
+이를 `ruby/setup-ruby@v1`으로 수정하여 버전 태그로 지정하면 이 문제를 해결할 수 있다
+
+`@v1`은 브랜치의 최신 커밋을 사용한다는 뜻인데, 
+
+ruby/setup-ruby가 업데이트 되더라도, 최신 변경 사항을 자동으로 반영하도록 설정하는 것임
 
 ## 참조
 ---
