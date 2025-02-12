@@ -35,7 +35,7 @@ social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: Dukgukim
-#  email: example@domain.com # change to your email address
+  #  email: example@domain.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
     # - https://twitter.com/username # change to your twitter homepage
@@ -49,9 +49,9 @@ google_site_verification: # fill in to your verification string
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
 
-naver_site_verification  : "a41a2ab49a045087a565f381a082f21dd40b48ba" # 추후 네이버 확인 필요
-google_analytics: 
-  id: 'G-XY4KZGREDG' # fill in your Google Analytics ID
+naver_site_verification: "a41a2ab49a045087a565f381a082f21dd40b48ba" # 추후 네이버 확인 필요
+google_analytics:
+  id: "G-XY4KZGREDG" # fill in your Google Analytics ID
 
 # Prefer color scheme setting.
 #
@@ -71,7 +71,7 @@ theme_mode: dark # [light|dark]
 # will be added to all image (site avatar & posts' images) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-img_cdn: "https://jinhg0214.github.io/"
+img_cdn: "https://jinhg0214.github.io"
 
 # the avatar on sidebar, support local or CORS resources
 avatar: "/assets/img/avatar.jpg"
