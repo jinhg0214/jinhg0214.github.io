@@ -4,7 +4,7 @@ vendor
 Gemfile.lock
 
 # Jekyll cache
-.jekyll-cache
+jekyll-cache
 .jekyll-metadata
 _site
 
