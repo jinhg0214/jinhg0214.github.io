@@ -44,7 +44,10 @@ image:
 3. 원격 저장소에 push
 
 ### 1. Node.js 설치
-[![nodejs](https://github.com/jinhg0214/jinhg0214.github.io/assets/70011316/7405e63f-8442-4b00-bcc8-ea40e9c79e55)]((https://nodejs.org/en))
+
+![nodejs](https://github.com/jinhg0214/jinhg0214.github.io/assets/70011316/7405e63f-8442-4b00-bcc8-ea40e9c79e55)
+
+![Node.js 링크](https://nodejs.org/en)
 
 - 위 링크에서 node.js를 받아 설치
 - node.js 설치하면 npm은 자동으로 설치된다
