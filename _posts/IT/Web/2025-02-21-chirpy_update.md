@@ -107,6 +107,8 @@ Github Actions에서 `html-proofer`가 내부 링크와 이미지 유효성을 �
 
 일단 급한대로, 이를 비활성화 한 뒤 빌드를 시도해봤으나 또 다른 에러들이 계속해서 발생했다
 
+### git 커밋 실패
+
 
 
 ## 4. Jekyll 및 GitAction 학습
