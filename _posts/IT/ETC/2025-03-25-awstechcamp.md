@@ -1,14 +1,13 @@
 ---
 title: "AWS TechCamp : VPC, EC2, DB 그리고 S3"
-date: 2025-03-25 19:53:43 +0900
-categories: [Algorithm, Problem Solving]  # 최대 2개 가능
-tags: [aws, vpc, ec2, db, s3]     # 태그는 항상 소문자로 작성할 것
+date: 2025-03-25 19:53:00 +0900
+categories: [IT, Web]  
+tags: [aws, vpc, ec2, database, s3]    
 toc: true
 comment: false
-published: false
+published: true
 image:
     path: "https://d1.awsstatic.com/apac/events/2024/kr/summit-seoul/aem-event-kr-banner-aws-techcamp.a59f6ff2bfa94999968317f82d8989b6acc4d474.png"
-    alt: 
 ---
 
 2025 3월 AWS TechCamp에 참여하면서 학습한 내용들 정리
@@ -168,7 +167,7 @@ AWS 클라우드 스토리지의 장점
 
 스토리지를 위한 서비스들
 
-- Amazon Simple Storage Serivce (S3) 
+- Amazon Simple Storage Service (S3) 
 - AWS 블록 스토리지
 - Amazon EC2 인스턴스 스토어
 - Amazon Elastic File System
