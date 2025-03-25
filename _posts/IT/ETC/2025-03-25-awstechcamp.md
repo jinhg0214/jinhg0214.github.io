@@ -2,7 +2,7 @@
 title: "AWS TechCamp : VPC, EC2, DB 그리고 S3"
 date: 2025-03-25 19:53:43 +0900
 categories: [Algorithm, Problem Solving]  # 최대 2개 가능
-tags: [aws, ]     # 태그는 항상 소문자로 작성할 것
+tags: [aws, vpc, ec2, db, s3]     # 태그는 항상 소문자로 작성할 것
 toc: true
 comment: false
 published: false
