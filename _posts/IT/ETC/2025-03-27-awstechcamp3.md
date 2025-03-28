@@ -7,7 +7,7 @@ toc: true
 comment: false
 published: true
 image:
-    path: "https://img.youtube.com/vi/_vdK5PgcNvc/maxresdefault.jpg"
+    path: "https://d2908q01vomqb2.cloudfront.net/fc074d501302eb2b93e2554793fcaf50b3bf7291/2022/09/16/Figure-1.-Launching-cloud-architecture-patterns-as-AWS-Service-Catalog-products-1024x688.png"
 ---
 
 ## 1. 유통 및 소비재 산업을 위한 AI 디지털 혁신 기술
