@@ -1,5 +1,5 @@
 ---
-title: "마비노기 모바일 MML 악보 구하기"
+title: "마비노기 모바일 : MML 악보 구하기"
 date: 2025-05-14 16:00:00 +0900
 categories: [Game, Mabinogi]  
 tags: [score, music, mml]    
