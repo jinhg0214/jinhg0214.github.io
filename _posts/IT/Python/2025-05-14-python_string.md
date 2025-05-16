@@ -5,7 +5,7 @@ categories: [Python, Grammar]  # 최대 2개 가능
 tags: [string, formatting, indexing, slicing, immutable, method]
 toc: true
 comment: false
-published: false
+published: true
 image:
     path: "https://miro.medium.com/v2/resize:fit:656/1*Ib1xRU1vcHlhmzL5LdIrrg.jpeg"
     alt: 
@@ -61,6 +61,7 @@ image:
 	- `a[:17] = "Life is too short`
 - 슬라이싱도 마찬가지로 `-`기호 사용 가능
 	- `a[19:-7] = 'You need'` 
+- `a[::2]` : 시작부터 2칸씩 뛰어서 즉 `a[0,2,4,6,8...]`
 - 날짜 나누기 예시
 
 ```python

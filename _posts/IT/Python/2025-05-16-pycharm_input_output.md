@@ -5,7 +5,7 @@ categories: [Python, Util]  # 최대 2개 가능
 tags: [ide, pycharm, input, output, setting]
 toc: true
 comment: false
-published: false
+published: true
 image:
     path: "https://www.jetbrains.com/pycharm/download/img/download.png"
     alt: 
