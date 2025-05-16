@@ -2,7 +2,7 @@
 title: "파이썬 문자열 문법 정리"
 date: 2025-05-14 17:09:55 +0900
 categories: [Python, Grammar]  # 최대 2개 가능
-tags: tags: [string, formatting, indexing, slicing, immutable, method]
+tags: [string, formatting, indexing, slicing, immutable, method]
 toc: true
 comment: false
 published: false
