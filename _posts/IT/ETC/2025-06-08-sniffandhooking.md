@@ -7,7 +7,7 @@ toc: true
 comment: false
 published: true
 image:
-    path: "https://cdn.gametoc.co.kr/news/photo/202506/93112_274564_1553.jpg"
+    path: "https://www.hideipvpn.com/wp-content/uploads/2021/11/what-is-packet-sniffing.png"
     alt: 
 ---
 
