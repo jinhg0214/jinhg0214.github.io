@@ -1,5 +1,5 @@
 ---
-title: "MCP : YouTube MCP Server로 유튜브 영상 요약하여 응용하기"
+title: "다시 터미널로. 개발자들을 위한 Google의 선물. Gemini CLI "
 date: 2025-07-03 22:37:44 +0900
 categories: [IT, Ai]  # 최대 2개 가능
 tags: [google, gemini, cli, tools, automation]     
@@ -10,8 +10,6 @@ image:
     path: "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_CLI_Hero_Final.width-1300.png"
     alt: 
 ---
-
-## 다시 터미널로. 개발자들을 위한 Google의 선물. Gemini CLI 
 
 개발자라면 누구나 하루의 대부분을 터미널과 코드 에디터 앞에서 보낸다.
 
