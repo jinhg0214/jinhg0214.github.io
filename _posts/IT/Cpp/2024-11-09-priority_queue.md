@@ -1,7 +1,7 @@
 ---
 title: "C++ 우선순위 큐"
 date: 2024-11-09 22:30:00 +0900
-categories: [C, Library]  
+categories: [C++, Library]  
 tags: [algorithm, datastructure, queue, sort]     
 toc: true
 comment: false
