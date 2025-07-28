@@ -21,3 +21,5 @@ image:
 (글 시작)
 
 ```
+
+깃 컨벤션은 다음과 같습니다 https://github.com/conventional-changelog/commitlint/#what-is-commitlint
