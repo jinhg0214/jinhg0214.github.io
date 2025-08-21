@@ -2,7 +2,7 @@
 title: "Git 사용 시 'kex_exchange_identification' 오류 해결 방법"
 date: 2025-07-28 10:00:00 +0900
 categories: [IT, Utility]
-tags: [git, error, , token]
+tags: [git, error, token, pat]
 toc: true
 comment: true
 published: true
