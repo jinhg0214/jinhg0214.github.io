@@ -7,7 +7,7 @@ toc: true
 comment: true
 published: true
 image:
-    path: ""
+    path: "https://thetechdarts.com/wp-content/uploads/2023/06/Picsart_23-06-20_00-52-19-788-scaled.jpg"
     alt: ""
 ---
 
