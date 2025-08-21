@@ -2,7 +2,7 @@
 title: "베란다 새 관찰 프로젝트 개발일지"
 date: 2025-08-21 09:55:00 +0900
 categories: [IT, project]  # 최대 2개 가능
-tags: [raspberrypi, yolo, firebase]    
+tags: [raspberrypi, yolo, firebase, opencv, python]    
 toc: true
 comment: false
 published: true
