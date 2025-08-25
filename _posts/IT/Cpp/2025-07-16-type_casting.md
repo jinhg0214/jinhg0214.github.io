@@ -29,6 +29,7 @@ image:
 ---
 
 ## C 스타일 형 변환의 문제점
+
 - `(new_type)expression`
 - 가장 간단하지만, **안정성**, **명확성**, **코드 가독성** 때문에 지양해야하는 방식
 1. 안정성 
@@ -53,6 +54,7 @@ C스타일 보다는 C++스타일 연산자를 사용하는 것이 훨씬 안전
 - int, float, double 등 기본 숫자 타입 간의 변환
 - void* 포인터를 다른 타입의 포인터로 변환
 - 상속 관계이 있는 클래스 포인터/참조 간의 변환 (안전성이 보장된 업캐스팅 및 다운캐스팅)
+
 ```cpp
 double d = 3.14;
 int i = static_cast<int>(d); // i = 3
@@ -64,6 +66,7 @@ class Derived : public Base{};
 Derived* d_ptr = new Derived();
 Base* b_ptr = static_cast<Base*>(d_ptr); // 업캐스팅(안전)
 ```
+
 ### 2. dynamic_cast
 - 다형성(Polymorphism)을 활용하는 클래스 계층 구조에서, 안전한 다운 캐스팅(down-casting)을 위해 사용함
 - 런타임에 타입 정보를 확인하여 변환을 수행하며, 변환이 불가능할 경우 포인터는 `nullptr`를, 참조는 `std::bad_cast` 예외를 발생시킴
@@ -87,11 +90,15 @@ if(d_ptr){
 	cout << " 형 변환 실패";
 }
 ```
+
 ### 3. const_cast
+
 - 객체의 `const` 또는 `volatile` 속성을 제거할 때 사용하는 매우 제한적인 용도의 연산자
 - `const`가 아닌 객체를 `const` 포인터/참조로 가리키고 있을 때, 원래의 `const`가 아닌 속성으로 되돌리기 위해 주로 사용함
 - 원래 `const`로 선언된 객체의 `const`속성을 제거하고 값을 수정하려 하면 미정의 동작(Undefined Behavior)이 발생하므로 절대 사용해서는 안됨!!!
+
 ```cpp
+
 void print(char *str){/*...*/};
 
 const char* my_str = "hello";
@@ -106,6 +113,7 @@ printf(const_cast<char*>(my_str));
 - 포인터와 정수 사이의 변환 등 로우레벨의 작업에 사용함
 - 이 연산의 결과는 시스템/플랫폼에 따라 달라질 수 있어 이식성이 매우 떨어짐
 - 꼭 필요한 경우 아니면 사용하지 말 것
+
 ```cpp
 int i = 65
 int* p_i = &i;
