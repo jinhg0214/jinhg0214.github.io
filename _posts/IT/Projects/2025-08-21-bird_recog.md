@@ -6,6 +6,7 @@ tags: [raspberrypi, yolo, firebase, opencv, python]
 toc: true
 comment: false
 published: true
+pin : true
 image:
     path: "https://i.ytimg.com/vi/JSTGUYZIl7U/maxresdefault.jpg" 
     alt: 
