@@ -14,6 +14,9 @@ image:
 코테가서 볼 한페이짜리 정보 모음
 
 작성중
+코테 전날 훑어볼 치트시트
+
+---
 
 ## 1. C++ PS 기본 환경설정(Basic Setup)
 - 문제 풀이를 시작하기 전 거의 항상 필요한 코드와 팁 
@@ -89,7 +92,7 @@ int main() {
 - 특히 재귀는 호출할 때 마다 Call stack에 메모리를 사용하므로, 주의
 ### 2-2. 자료형
 - 정수 범위 체크 습관화
-- int 범위: 약 ±2.1e9
+- int 범위: 약 ±2.1e9. `2.1 * 10^9`초과하면 long long 쓸것!!!
 - long long 범위: 약 ±9e18
 - `int`와 `long long` 혼합 연산 → 자동 승격 안 되므로 주의
 - 형 변환에 주의할 것
@@ -108,16 +111,27 @@ const long long LINF = 1e18;
 - 모듈러 연산 주의 : `(a-b+MOD)%MOD`
 - 빠른 거듭제곱 (fast power, O(logN))
 ---
-## 3. 도구 상자
-- 알고리즘 구현에 필요한 C++의 툴들을 정리
+## 3. Tools
+
+알고리즘 구현에 필요한 C++의 툴들을 정리
 ### 3-1. STL 컨테이너
 - `vector`: 동적 배열. `v.push_back(), v.pop_back(), v.size(), v.clear()`
+	- reserve와 resize의 차이 알아둘 것
+	- `reserve(n)` : 앞으로 사용할 메모리 공간 미리 예약
+		- size는 바뀌지 않음, capacity가 최소 n으로 변경
+		- 비효율적인 재할당을 방지하기 위한 메모리 공간을 미리 확보하는 최적화 방법
+	- `resize(n)` : 컨테이너의 크기 변경
+		- size가 n으로 바뀜, capacity는 필요시 n 이상으로 변경
 - `queue`: FIFO. `q.push(), q.pop(), q.front(), q.empty()`
 - `stack`: LIFO. `s.push(), s.pop(), s.top(), s.empty()`
 - `priority_queue`: 힙. `pq.push(), pq.pop(), pq.top()`
 - Min Heap: `priority_queue<int, vector<int>, greater<int>> pq;`
+
+Key-Value 값을 저장하고자 하면 Map
 - `map`* `Key-Value, 자동 정렬(Red-Black Tree). O(log N)`
 - `unordered_map`: Key-Value, `정렬X(Hash). 평균 O(1)`
+
+원소만 저장하고자 하면 Set
 - `set`: 중복 없는 원소, 자동 정렬. O(log N)
 - `unordered_set`: 중복 없는 원소, 정렬X. 평균 O(1)
 ### 3-2. STL 알고리즘 
@@ -159,15 +173,26 @@ sort(v.begin(), v.end(), [](auto &a, auto &b){ // 람다 함수 사용
 
 ---
 ## 4. 핵심 알고리즘 
-- 본격적인 문제 해결 로직들을 유형별로 정리
-### 4-1. 기본 알고리즘
 
-완전 탐색 / 백트래킹 : 모든 경우의 수를 탐색하는 기본 전략 (재귀, next_permutation)
+본격적인 문제 해결 로직들을 유형별로 정리
+### 구현, 시뮬레이션
+- 버퍼를 써야하는가? 동시성 문제가 발생하는지 체크할 것
+- "동시에" 무언가가 변하는지를 찾아볼 것. 순차성 문제는 버퍼 불필요
+[민트 초코 우유](https://www.codetree.ai/ko/frequent-problems/samsung-sw/problems/mint-choco-milk/description)에서는 오히려 동시성 처리를 하면 잘못된 결과가 발생했음
+
+### 완전 탐색
+
+개념
+- 모든 경우의 수를 탐색하는 기본 전략 (재귀, next_permutation)
+- DFS를 기반으로 하지만, 가지치기(Pruning)을 통해 불필요한 탐색을 줄여 효율을 높힘
+- 문제의 모든 후보 해를 나타내는 '상태 공간 트리'를 탐색하는 과정으로 볼 수 있음
+
+예시 문제
 - [N과 M 시리즈](https://jinhg0214.github.io/posts/N_and_M/)
-- 백트래킹은 DFS를 기반으로 하지만, 불필요한 탐색을 줄이고 정답만 찾는다 
+
+의사 코드
 ```cpp
 ## 📌 백트래킹 기본 알고리즘
-
 1. 현재 상태(state)를 확인
 2. 만약 조건을 위배하면 → **즉시 리턴(가지치기)**
 3. 조건을 만족하면 → 정답 후보인지 확인
@@ -180,55 +205,237 @@ void backtrack(state) {
 
     for (선택 가능한 경우들) {
         선택;
-        backtrack(업데이트된 state);
+        backtrack(업데이트된 state); //idx+1이나 sum+a 
         선택 취소; // 원상 복구 (undo)
     }
 }
+
+// vector를 값으로 복사하지 않고, 참조(&)로 전달하는게 효율적
+// 재귀호출 직전에 원소를 추가하고, 재귀 호출 이후에 원소를 제거하여 복구하는 방법 사용
+void DFS(int level, ..., vector<int>& selected) { 
+	 // Base Case (종료 조건)
+	 if (level == M) { / 결과 처리 / return; }
+
+	 for (int i = next; i < N; i++) {
+		 selected.push_back(i);      // 1. 상태 변경 (선택)
+		 DFS(level + 1, ..., selected);
+		 selected.pop_back();       // 2. 상태 복구 (선택 해제)
+	 }
+ }
+```
+### 그리디 (Greedy)
+개념
+- 매 순간 가장 좋아보이는 선택을 반복하는 방법
+	- '탐욕적 선택이 항상 최적해로 이어진다'는 정당성을 반드시 증명해야 함
+	- 직관만으로 사용하면 틀리기 쉬우므로 주의할 것
+- 문제를 해결하기 위한 최적의 정렬 기준 찾기
+- 정형화된 절차 없음
+
+예시 문제
+- [백준 회의실 배정 문제](https://www.acmicpc.net/problem/1931)
+* 최소 신장 트리 (MST): 크루스칼(Kruskal), 프림(Prim) 알고리즘
+* 다익스트라(Dijkstra) 알고리즘
+
+의사 코드
+```cpp
+function greedy_solver(inputs):
+	// 1. 문제를 해결할 '정렬 기준'을 찾는다. (가장 중요)
+	sort(inputs) by the greedy criterion
+	
+	solution = {}
+	
+	// 2. 정렬된 순서대로 순회한다.
+	for item in inputs:
+	  // 3. 현재 아이템을 선택해도 되는지 '적합성'을 검사한다.
+	  if is_feasible(item, solution):
+		  // 4. 해답에 추가하고 상태를 갱신한다.
+		  add item to solution
+	
+	return solution
 ```
 
-그리디 (Greedy) : 정렬 후 선택, 기준점 찾기 등.
+### 분할 정복 (Divide & Conquer) 
+개념
+- 큰 문제를 더 이상 나눌 수 없는 작은 문제로 나눈뒤(Divide),  작은 문제들을 해결하고 그 결과를 합쳐 원래 문제의 답을 구하는 전략
+- 일반적으로 재귀함수로 구현됨
 
-분할 정복 (Divide & Conquer)*: 큰 문제를 작은 문제로 나누어 해결.
+예시 문제
+- 병합 정렬(Merge Sort) : 배열을 반으로 나누고, 각 부분을 정렬한 뒤, 정렬된 두 부분을 다시 합침
+- 퀵 정렬(Quick Sort) : 피벗(Pivot)을 기준으로 배열을 두 부분으로 나눈뒤, 각 부분을 재귀적으로 정렬
+- 이진 탐색(Binary Search) : 탐색 범위를 절반씩 줄여나가며 답을 찾음
 
-이분 탐색 : 정렬된 데이터에서 탐색, Parametric Search (최적화 문제).
+의사 코드
+```
+function divide_and_conquer(problem):
+	// Base Case: 문제가 충분히 작으면 직접 푼다.
+	if problem is small_enough:
+	  return solve_directly(problem)
+	
+	// 1. 분할 (Divide)
+	subproblems = divide(problem)
+	
+	// 2. 정복 (Conquer)
+	sub_solutions = []
+	for sub in subproblems:
+	  sub_solutions.append(divide_and_conquer(sub))
+	
+	// 3. 결합 (Combine)
+	result = combine(sub_solutions)
+	
+	return result
+```
+
+### 이분 탐색
+개념 
+- 정렬된 데이터에서 특정 값을 O(logN)의 시간 복잡도로 빠르게 찾는 알고리즘
+- 탐색 범위를 계속해서 절반으로 줄여나가며 답을 찾음
+- 주요 활용 분야 '탐색' 혹은 
+	- '파라메트릭 서치(Parametric Search)' : 특정 조건을 만족하는 최대/최소값을 찾는 최적화 문제. 이 값이 조건에 맞는가를 반복해서 확인하는 결정 문제로 바꾸어 해결
+
+예시 문제
+- [수 찾기](https://www.acmicpc.net/problem/1920) (정렬된 배열에서 숫자 존재 여부 확인)
+- [나무 자르기](https://www.acmicpc.net/problem/2805) (원하는 나무 길이를 얻기 위한 절단기 높이의 최댓값 찾기)
+- [공유기 설치](https://www.acmicpc.net/problem/2110) (가장 인접한 두 공유기 사이의 거리를 최대로 하기)
+
+의사 코드
 ```cpp
-int low = 0, high = N - 1, ans = -1;
+// 주로 while문을 이용한 반복 형태로 구현
+// 특정 조건을 만족하는 최소값을 찾는 파라메트릭 서치 템플릿
+int low = 시작값, high = 끝값;
+int ans = -1; // 문제에 따라 초기값 설정
+
 while (low <= high) {
-  int mid = low + (high - low) / 2;
-  if (check(mid)) { // 조건 만족
-	  ans = mid;
-	  high = mid - 1; // 더 작은 쪽 탐색
-  } else {
-	  low = mid + 1;
-  }
+	int mid = low + (high - low) / 2;
+	
+	// mid가 조건을 만족하는가?
+	if (check(mid)) {
+	  ans = mid;          // 현재 mid는 정답 후보가 됨
+	  high = mid - 1;     // 더 좋은 답(더 작은 값)이 있는지 왼쪽 범위 탐색
+	} 
+	else {
+	  low = mid + 1;      // 조건을 만족하지 못하므로 오른쪽 범위 탐색
+	}
+}
+// 최종 ans가 정답
+```
+
+### 투 포인터 / 슬라이딩 윈도우 
+개념
+- 1차원 배열 위에서 두 개의 포인터를 움직여가며, 문제의 조건에 만족하는 특정 구간을 O(N)의 시간 복잡도로 찾는 알고리즘
+- 포인터들이 배열의 시작과 끝에서 서로를 향해 움직이거나, 같은 방향으로 이동하며 구간(윈도우)의 크기를 조절함
+
+예시 문제
+- [부분합](https://www.acmicpc.net/problem/1806) (합이 S 이상인 가장 짧은 연속 부분 수열 찾기)
+- [두 용액](https://www.acmicpc.net/problem/2470) (두 용액을 합쳐 0에 가장 가까운 용액 만들기. 포인터가 양 끝에서 시작)
+- [보석 쇼핑](https://programmers.co.kr/learn/courses/30/lessons/67258) (모든 종류의 보석을 포함하는 가장 짧은 구간 찾기)
+```cpp
+int start = 0, end = 0;
+// 현재 윈도우의 상태를 저장할 변수 (e.g., 구간 합, 원소 개수 등)
+auto current_state;
+
+while (end < N) {
+	// 1. end 포인터를 이동시켜 윈도우를 확장
+	window.add(arr[end]);
+	
+	// 2. 윈도우가 조건을 만족하는 동안, start를 이동시켜 윈도우 축소
+	while (window.satisfies_condition()) {
+	  // 정답 갱신 (e.g., 최소 길이, 최대값 등)
+	  update_answer();
+	
+	  window.remove(arr[start]);
+	  start++;
+	}
+	
+	end++;
 }
 ```
 
-투 포인터 / 슬라이딩 윈도우*: 1차원 배열에서 특정 조건을 만족하는 구간을 O(N)에 찾는 기술
+### 유니온 파인드 
+개념
+- 여러 노드들이 어떤 그룹에 속해있는지 표현하고, 두 노드를 같은 그룹으로 합치는(Union)연산과 특정 노드가 어떤 그룹에 속해있는지 찾는(Find) 연산을 효율적으로 수행하는 자료구조
+- '서로소 집합(Disjoing Set)' 자료 구조라고도 부름
 
-유니온 파인드
+예시 문제
+- [집합의 표현](https://www.acmicpc.net/problem/1717) (Union, Find 연산 구현)
+- [여행 가자](https://www.acmicpc.net/problem/1976) (도시들이 모두 연결되어 여행 계획이 가능한지 판별)
+- 최소 신장 트리(MST)를 구하는 크루스칼 알고리즘*에서 사이클 생성 여부 판별
+
+의사 코드
 ```cpp
-vector<int> parent(n+1), sz(n+1,1);
+// 경로 압축(Path Compression)과 크기 기반 합치기(Union by Size) 최적화가 적용된 C++ 템플릿
+// parent[i]: i의 부모 노드
+// sz[i]: i가 루트인 경우, 해당 트리의 크기
+vector<int> parent(n + 1), sz(n + 1, 1);
+
+// iota: parent 배열을 0, 1, 2, ... , n으로 초기화
 iota(parent.begin(), parent.end(), 0);
 
-function<int(int)> find = [&](int x){
-    return parent[x]==x ? x : parent[x]=find(parent[x]);
+// find: x의 루트 노드를 찾음 (경로 압축 최적화 포함). 재귀를 사용함
+function<int(int)> find = & (int x) {
+  if (parent[x] == x) return x;
+  return parent[x] = find(parent[x]);
 };
 
-auto unite = [&](int a,int b){
-    a=find(a), b=find(b);
-    if(a==b) return false;
-    if(sz[a]<sz[b]) swap(a,b);
-    parent[b]=a; sz[a]+=sz[b];
-    return true;
-};
+// unite: a와 b가 속한 두 그룹을 합침 (크기 기반 최적화 포함)
+auto unite = & (int a, int b) {
+  a = find(a);
+  b = find(b);
+  if (a == b) return false; // 이미 같은 그룹
 
+  // 더 작은 트리를 더 큰 트리 밑으로 합침
+  if (sz[a] < sz[b]) swap(a, b);
+  parent[b] = a;
+  sz[a] += sz[b];
+  return true;
+};
 ```
 
-### 4-2. 동적 계획법(DP)
-LIS (Longest Increasing Subsequence)
-Knapsack (배낭 문제)
-LCS (최장 공통 부분 수열)
+### 동적 계획법(DP)
+개념
+- 복잡한 문제를 여러 개의 작은 겹치는 부분 문제로 나눈뒤, 각 부분의 문제의 답을 한번만 계산하고 그 결과를 저장(캐싱)하여 재활용함으로써 속도를 향상시키는 전략
+- 규칙을 찾아내서 점화식을 세우는 것이 가장 중요하지만 어려움
+
+예시 문제
+- LIS (Longest Increasing Subsequence)
+- [Knapsack (배낭 문제)](https://jinhg0214.github.io/posts/knapsack/)
+- [LCS (최장 공통 부분 수열)](https://jinhg0214.github.io/posts/subsequence/) 
+
+의사 코드
+```cpp
+// 1. 탑다운 (Top-Down) / 메모이제이션 (Memoization)
+// dp_table: 계산 결과를 저장하는 배열, -1 등으로 초기화
+int dp_table[N];
+
+int solve(state) {
+	// Base Case (재귀의 종료 조건)
+	if (is_base_case(state)) return base_value;
+	
+	// 이미 계산한 문제라면 즉시 반환 (Memoization)
+	if (dp_table[state] != -1) return dp_table[state];
+	
+	// 재귀적으로 다음 상태를 호출하여 결과 계산
+	int result = /* 점화식에 따른 계산 */;
+	
+	// 결과를 저장하고 반환
+	return dp_table[state] = result;
+}
+// 2. 바텀업 (Bottom-Up) / 타뷸레이션 (Tabulation)
+// dp_table: 계산 결과를 저장하는 배열
+int dp_table[N];
+
+// Base Case (가장 작은 문제) 초기화
+dp_table[0] = base_value;
+
+// 반복문을 통해 테이블을 채워나감
+for (int i = 1; i < N; i++) {
+  // 점화식: 이전 결과들(dp_table[i-1] 등)을 이용해 현재 답을 구함
+  dp_table[i] = /* 점화식에 따른 계산 */;
+}
+
+// 최종 결과 반환
+return dp_ta
+```
+
 ### 4-3. 그래프
 #### 표현법
 - 인접 행렬
@@ -294,7 +501,8 @@ Blood-Fill
 
 ### 4-4. 기타 주요 알고리즘
 - 정수론 : 소수 판별(에라토스테네스의 체), GCD/LCM, 모듈러 연산
-- 문자열 : KMP, 트라이(Trie) 등
+- 문자열 : KMP, 트라이(Trie) 등. [[문자열 파싱]] 등 문자열 관련 폴더 참조
+
 - 최소 신장 트리 (MST): 크루스칼(Kruskal), 프림(Prim)
 - 위상 정렬 (Topological Sort)
 - 구조체 비교
@@ -312,16 +520,19 @@ for (int s=0; s<(1<<n); s++) { // 부분집합 순회
 ### 5-1. 입력 
 - 테스트 케이스 개수가 주어지지 않은 경우 : scanf는 입력받는데 성공한 인자들의 수 리턴
 ```C++
-while(scanf("%d%d", &a, &b)!=EOF)
-	printf("%d\n", a+b);
 while(cout >> a >> b){ // cout도 EOF에 도달하면 false를 리턴함
 	cout << a + b << '\n'; 
 }
+
+while(scanf("%d%d", &a, &b)!=EOF)
+	printf("%d\n", a+b);
 ```
 - 띄어쓰기를 포함한 줄 입력
 ```cpp
-cin.ignore(); cin.getline(cin, str); 
-// 이전에 cin을 사용헀다면 '\n' 가 남아있는 경우가 있으므로 cin.ignore를 쓸 것
+cin >> N;
+cin.ignore(); 
+cin.getline(cin, str); 
+// 이전에 cin을 사용헀다면 '\n' 가 남아있는 경우가 있으므로 cin.ignore를 써줘야함
 ```
 - 띄어쓰기가 아닌 규칙 입력
 ```cpp
@@ -340,7 +551,7 @@ while(ss >> token){ // 공백을 기준으로 자동 파시
 	cout << token << "\n";
 }
 ```
-- 공백 없이 이어붙은 문자/숫자 그리드 입력받기
+- 공백 없이 붙은 문자/숫자 그리드 입력받기
 ```cpp
   // 4x5 크기의 격자가 공백 없이 주어질 때
   // 11011
@@ -361,7 +572,6 @@ while(ss >> token){ // 공백을 기준으로 자동 파시
 - 파일 입출력으로 로컬 테스트하기
 ```cpp
 freopen("input.txt", "r", stdin);
-// do something
 freopen("output.txt", "w", stdout);
 ```
 - 테스트 케이스가 주어진 경우, 사용한 메모리들을 꼭 초기화 해야 함
@@ -403,7 +613,7 @@ printf("%d %lld %c %s\n", 10, 1234567890LL, 'A', "hello");
 // %d: int, %lld: long long, %c: char, %s: C-style string(char*)
 std::string s = "world";
 printf("%s\n", s.c_str());
-// std::string은 .c_str() 멤버 함수를 사용해야 함
+// std::string은 .c_str() 멤버 함수를 사용해야 함. 안그러면 깨져서 나옴
 
 // 1. 소수점 정밀도 지정
 printf("%.3f\n", 3.141592);
@@ -432,9 +642,16 @@ printf("8진수: %o\n", number);  // 377
 ---
 
 ## 6. 디버깅
-- 코너 케이스 체크
-최소값, 최대값, 음수/0 입력, 중복 원소, 경계 조건
-출력 확인
+
+제출 전 주요 디버깅 체크리스트 작성 및 적용
+
+- 일반 케이스
+- 최소/최대 입력
+- 경계 조건
+- 예외 케이스
+- 자료형 범위
+- 시간/공간 복잡도
+- 출력 포멧
 
 ## 참조
 
