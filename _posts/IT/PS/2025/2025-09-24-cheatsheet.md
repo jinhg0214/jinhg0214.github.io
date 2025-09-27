@@ -17,7 +17,6 @@ image:
 코테 전날 훑어볼 치트시트
 
 ---
-
 ## 1. C++ PS 기본 환경설정(Basic Setup)
 - 문제 풀이를 시작하기 전 거의 항상 필요한 코드와 팁 
 ### 1-1.  C++ 필수 코드 템플릿
@@ -27,7 +26,9 @@ image:
 - 타입 별칭: using ll = long long;, using pii = pair<int, int>;
 * endl 대신 '\n' 사용하기
 ### 1-2 .  로컬 디버깅 템플릿
+
 - 코테용 TC 디버깅 템플릿
+
 ```cpp
 #include <iostream>
 
@@ -68,6 +69,7 @@ int main() {
 ### 2-1. 복잡도 계산
 - 시간 복잡도
 - N 크기에 따른 허용 시간 복잡도 (1초, 1억 연산 기준)
+
 ```
   *   N ≤ 1,000,000: O(N), O(N log N)
   *   N ≤ 10,000: O(N²)
@@ -76,6 +78,7 @@ int main() {
   *   N ≤ 12: O(N!) (순열)
 ```
 - 공간 복잡도
+
 ```
 *   int: 4 bytes
 *   long long: 8 bytes
@@ -97,6 +100,7 @@ int main() {
 - `int`와 `long long` 혼합 연산 → 자동 승격 안 되므로 주의
 - 형 변환에 주의할 것
 - 상수 정의
+
 ```cpp
 const int INF = 21e8; 
 const long long LINF = 1e18;
@@ -144,6 +148,7 @@ Key-Value 값을 저장하고자 하면 Map
 ### 3-3. 기타 스킬들
 
 특정 원소 삭제
+
 ```cpp
 v.erase(remove(v.begin(), v.end(), x), v.end());
 // erase 함수는 연속적 특성을 가진 컨테이너에서는 삭제 한 뒤, 값들이 일제히 당겨짐.
@@ -158,11 +163,13 @@ std::erase_if(vec, [](int num){return num < 0;});
 ```
 
 중복 원소 삭제 ([[unique 함수]] 참조)
+
 ```cpp
 v.erase(unique(v.begin(), v.end()), v.end()); // unique의 리턴값은 정렬되고 난 후 쓰레기값의 첫번째 위치를 리턴함
 ```
 
 정렬 커스텀
+
 ```cpp
 sort(v.begin(), v.end(), [](auto &a, auto &b){ // 람다 함수 사용
     return a.second < b.second;
@@ -191,6 +198,7 @@ sort(v.begin(), v.end(), [](auto &a, auto &b){ // 람다 함수 사용
 - [N과 M 시리즈](https://jinhg0214.github.io/posts/N_and_M/)
 
 의사 코드
+
 ```cpp
 ## 📌 백트래킹 기본 알고리즘
 1. 현재 상태(state)를 확인
@@ -237,6 +245,7 @@ void DFS(int level, ..., vector<int>& selected) {
 * 다익스트라(Dijkstra) 알고리즘
 
 의사 코드
+
 ```cpp
 function greedy_solver(inputs):
 	// 1. 문제를 해결할 '정렬 기준'을 찾는다. (가장 중요)
@@ -265,6 +274,7 @@ function greedy_solver(inputs):
 - 이진 탐색(Binary Search) : 탐색 범위를 절반씩 줄여나가며 답을 찾음
 
 의사 코드
+
 ```
 function divide_and_conquer(problem):
 	// Base Case: 문제가 충분히 작으면 직접 푼다.
@@ -298,6 +308,7 @@ function divide_and_conquer(problem):
 - [공유기 설치](https://www.acmicpc.net/problem/2110) (가장 인접한 두 공유기 사이의 거리를 최대로 하기)
 
 의사 코드
+
 ```cpp
 // 주로 while문을 이용한 반복 형태로 구현
 // 특정 조건을 만족하는 최소값을 찾는 파라메트릭 서치 템플릿
@@ -328,6 +339,9 @@ while (low <= high) {
 - [부분합](https://www.acmicpc.net/problem/1806) (합이 S 이상인 가장 짧은 연속 부분 수열 찾기)
 - [두 용액](https://www.acmicpc.net/problem/2470) (두 용액을 합쳐 0에 가장 가까운 용액 만들기. 포인터가 양 끝에서 시작)
 - [보석 쇼핑](https://programmers.co.kr/learn/courses/30/lessons/67258) (모든 종류의 보석을 포함하는 가장 짧은 구간 찾기)
+
+의사 코드
+
 ```cpp
 int start = 0, end = 0;
 // 현재 윈도우의 상태를 저장할 변수 (e.g., 구간 합, 원소 개수 등)
@@ -361,6 +375,7 @@ while (end < N) {
 - 최소 신장 트리(MST)를 구하는 크루스칼 알고리즘*에서 사이클 생성 여부 판별
 
 의사 코드
+
 ```cpp
 // 경로 압축(Path Compression)과 크기 기반 합치기(Union by Size) 최적화가 적용된 C++ 템플릿
 // parent[i]: i의 부모 노드
@@ -401,6 +416,7 @@ auto unite = & (int a, int b) {
 - [LCS (최장 공통 부분 수열)](https://jinhg0214.github.io/posts/subsequence/) 
 
 의사 코드
+
 ```cpp
 // 1. 탑다운 (Top-Down) / 메모이제이션 (Memoization)
 // dp_table: 계산 결과를 저장하는 배열, -1 등으로 초기화
@@ -476,6 +492,7 @@ while (!q.empty()) {
 DFS 깊이 우선 탐색
 - 그래프/트리에서 모든 노드를 방문하기 위한 탐색 기법
 - 백트래킹은 DFS를 기반으로 하지만, 이 경로는 답이 아니다 싶으면 바로 가지치기함
+
 ```cpp
 void dfs(int curr) {
   visited[curr] = true;
@@ -507,6 +524,7 @@ Blood-Fill
 - 위상 정렬 (Topological Sort)
 - 구조체 비교
 - 비트마스킹 : 비트 연산을 이용한 집합 표현 및 상태 압축
+
 ```cpp
 for (int s=0; s<(1<<n); s++) { // 부분집합 순회
     if (s & (1<<i)) { ... } // i번째 원소 포함 여부
@@ -519,6 +537,7 @@ for (int s=0; s<(1<<n); s++) { // 부분집합 순회
 - `cin/cout` 속도 향상 : `ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)`
 ### 5-1. 입력 
 - 테스트 케이스 개수가 주어지지 않은 경우 : scanf는 입력받는데 성공한 인자들의 수 리턴
+
 ```C++
 while(cout >> a >> b){ // cout도 EOF에 도달하면 false를 리턴함
 	cout << a + b << '\n'; 
@@ -528,6 +547,7 @@ while(scanf("%d%d", &a, &b)!=EOF)
 	printf("%d\n", a+b);
 ```
 - 띄어쓰기를 포함한 줄 입력
+
 ```cpp
 cin >> N;
 cin.ignore(); 
@@ -535,10 +555,12 @@ cin.getline(cin, str);
 // 이전에 cin을 사용헀다면 '\n' 가 남아있는 경우가 있으므로 cin.ignore를 써줘야함
 ```
 - 띄어쓰기가 아닌 규칙 입력
+
 ```cpp
 scanf("%d, %d",&a, &b); // scanf를 사용
 ```
 - getline으로 받은 문자열을 쪼개기
+
 ```cpp
 #include <sstream>
 
@@ -552,6 +574,7 @@ while(ss >> token){ // 공백을 기준으로 자동 파시
 }
 ```
 - 공백 없이 붙은 문자/숫자 그리드 입력받기
+
 ```cpp
   // 4x5 크기의 격자가 공백 없이 주어질 때
   // 11011
@@ -570,6 +593,7 @@ while(ss >> token){ // 공백을 기준으로 자동 파시
   // 숫자로 사용해야 한다면 board[i][j] - '0' 트릭을 사용
 ```
 - 파일 입출력으로 로컬 테스트하기
+
 ```cpp
 freopen("input.txt", "r", stdin);
 freopen("output.txt", "w", stdout);
@@ -578,6 +602,7 @@ freopen("output.txt", "w", stdout);
 - `endl` 대신 `'\n'` 사용하기
 ### 5-2. 출력
 - cout 출력 포멧팅
+
 ```cpp
 // 1. 소수점 정밀도 제어
 double pi = 3.1415926535;
@@ -607,6 +632,7 @@ cout << dec; // 다른 출력을 위해 10진수로 다시 돌려놓는 것이 �
 // dec, hex, oct는 계속 유지됨 (sticky)
 ```
 - printf 출력 포멧팅 : 속도가 빠르고, 형식 문자열 하나로 제어 가능
+
 ```cpp
 // 0. 기본 자료형 출력
 printf("%d %lld %c %s\n", 10, 1234567890LL, 'A', "hello");
