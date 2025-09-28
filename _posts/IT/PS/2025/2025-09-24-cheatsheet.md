@@ -11,9 +11,6 @@ image:
     path: "https://www.shutterstock.com/image-illustration/cheatsheet-text-on-blue-grungy-260nw-1808793118.jpg"
 ---
 
-코테가서 볼 한페이짜리 정보 모음
-
-작성중
 코테 전날 훑어볼 치트시트
 
 ---
@@ -114,6 +111,7 @@ const long long LINF = 1e18;
 	- 조합 개수 : `n!/(r! * (n-r)!)`
 - 모듈러 연산 주의 : `(a-b+MOD)%MOD`
 - 빠른 거듭제곱 (fast power, O(logN))
+- 전위표기법 (+AB), 중위 표기법 (A+B), 후위표기법(AB+)
 ---
 ## 3. Tools
 
@@ -195,7 +193,9 @@ sort(v.begin(), v.end(), [](auto &a, auto &b){ // 람다 함수 사용
 - 문제의 모든 후보 해를 나타내는 '상태 공간 트리'를 탐색하는 과정으로 볼 수 있음
 
 예시 문제
-- [N과 M 시리즈](https://jinhg0214.github.io/posts/N_and_M/)
+- [N과 M 시리즈](https://jinhg0214.github.io/posts/N_and_M/) : 순열, 조합, 중복 허용 순열, 중복 허용 조합의 대표적 문제
+- N-Queen
+
 
 의사 코드
 
@@ -231,6 +231,69 @@ void DFS(int level, ..., vector<int>& selected) {
 	 }
  }
 ```
+
+순열, 조합, 중복순열, 중복 조합 의사코드 
+
+```cpp
+// 1. 순열 (Permutation)
+// arr: 전체 원소 배열, result: 현재까지 만든 순열, visited: 원소 사용 여부 체크
+function permutation(result):
+	// M개를 모두 뽑았으면 출력
+	if length(result) == M:
+		print result
+		return
+	
+	// 0번부터 N-1번 원소까지 모두 확인
+	for i from 0 to N-1:
+		// 아직 사용하지 않은 원소라면
+		if visited[i] == false:
+			visited[i] = true          // 사용했다고 표시
+			add arr[i] to result       // 결과에 추가
+			permutation(result)        // 재귀 호출
+			remove last from result    // (백트래킹) 원상 복구
+			visited[i] = false         // (백트래킹) 원상 복구
+
+// 2. 조합 (Combination)
+// start: 탐색을 시작할 인덱스
+function combination(result, start):
+	// M개를 모두 뽑았으면 출력
+	if length(result) == M:
+		print result
+		return
+	
+	// start 인덱스부터 N-1번 원소까지 확인
+	for i from start to N-1:
+		add arr[i] to result
+		combination(result, i + 1)  // ★ 핵심: 다음 탐색은 i+1부터 시작
+		remove last from result
+
+// 3. 중복순열 (Permutation with Repetition)
+function permutation_with_repetition(result):
+	// M개를 모두 뽑았으면 출력
+	if length(result) == M:
+		print result
+		return
+
+// 0번부터 N-1번 원소까지 모두 확인 (제약 없음)
+for i from 0 to N-1:
+	add arr[i] to result // 중복 체크가 빠짐
+	permutation_with_repetition(result)
+	remove last from result
+
+// 4. 중복조합 (Combination with Repetition)
+function combination_with_repetition(result, start):
+	// M개를 모두 뽑았으면 출력
+	if length(result) == M:
+		print result
+		return
+	
+	// start 인덱스부터 N-1번 원소까지 확인
+	for i from start to N-1:
+		add arr[i] to result // 별도의 중복 체크 불필요. 탐색에서 처리함
+		combination_with_repetition(result, i)  // ★ 핵심: 다음 탐색을 i부터 시작
+		remove last from result
+```
+
 ### 그리디 (Greedy)
 개념
 - 매 순간 가장 좋아보이는 선택을 반복하는 방법
@@ -301,6 +364,7 @@ function divide_and_conquer(problem):
 - 탐색 범위를 계속해서 절반으로 줄여나가며 답을 찾음
 - 주요 활용 분야 '탐색' 혹은 
 	- '파라메트릭 서치(Parametric Search)' : 특정 조건을 만족하는 최대/최소값을 찾는 최적화 문제. 이 값이 조건에 맞는가를 반복해서 확인하는 결정 문제로 바꾸어 해결
+- 인덱스 값에 주의할것. +1, -1
 
 예시 문제
 - [수 찾기](https://www.acmicpc.net/problem/1920) (정렬된 배열에서 숫자 존재 여부 확인)
@@ -504,26 +568,165 @@ void dfs(int curr) {
 }
 ```
 
-#### 최단 경로
+## 최단 경로
 
-다익스트라(Dijkstra)
+### 다익스트라(Dijkstra)
 
-가중치 0/1 -> 0-1 BFS (deque) 활용
+개념
+- 그래프의 하나의 시작 정점으로부터 다른 모든 정점으로까지의 최단 경로를 찾는 알고리즘
+- 거리 배열은 long long 으로 선언하는 것을 고려할 것
+- 우선 순위 큐에서 꺼낸 정보가 최신인지 확인할 것
 
-Blood-Fill
+예시 문제
+- [BOJ 1753 - 최단경로](https://www.acmicpc.net/problem/1753)
+- [BOJ 1916 - 최소비용 구하기](https://www.acmicpc.net/problem/1916)
+- [BOJ 1238 - 파티](https://www.acmicpc.net/problem/1238)
 
-벨만-포드(Bellman-Ford)
+의사 코드
 
-플로이드-워셜(Floyd-Warshall).
+```cpp
+// edge에는 edge[start] = {cost, end} 순으로 기록되어 있어야 함
 
+void dijkstra(int start) {
+	dist.resize(V + 1);
+	for (int i = 0; i < dist.size(); i++) {
+		dist[i] = 21e8; 
+	}
+
+	priority_queue< pair<int, int>, vector<pair<int,int>>, greater<pair<int,int>>> pq; // C++ 우선순위큐는 최소힙이므로 greater로 정렬해야 역순으로 출력됨
+	// 혹은 값을 음수화 하고 최소힙을 사용해도 됨
+	pq.push({ 0, start });
+	dist[start] = 0;
+
+	while (!pq.empty()) {
+		int cur_dis = pq.top().first; // 현재 거리의 코스트
+		int cur = pq.top().second; // 현재 노드
+		pq.pop();
+
+		for (int i = 0; i < edge[cur].size(); i++) {
+			int next_dis = edge[cur][i].first; // 다음 목적지까지의 코스트
+			int next = edge[cur][i].second; // 다음 목적지 
+
+			// dist 배열 갱신 부분. 만약 현재 거리 + 다음 목적지 거리가 더 짧으면 갱신
+			if (cur_dis + next_dis < dist[next]) {
+				dist[next] = cur_dis + next_dis;
+				pq.push({ dist[next], next }); // 큐에 넣어준다
+			}
+		}
+
+
+	}
+}
+```
+
+### 0-1 BFS
+개념
+- 간선의 가중치가 0 또는 1인 그래프에서 최단 경로를 찾는 알고리즘
+- 일반적인 BFS와 다익스트라 알고리즘의 특징을 결합한 형태
+- 덱을 사용하여, 
+	- 덱의 앞에 0-가중치 간선으로 연결된 정점을 추가함으로써, 거리가 증가하지 않는 경로를 우선적으로 탐색한다. 
+	- 반대로 1-가중치 간선으로 연결된 정점은 뒤에 추가하여, 현재 거리의 노드를 모두 방문한 뒤에 탐색하여 우선순위를 떨어트린다
+- push, pop 연산이 O(1)이므로 O(V+E) 선형 시간 복잡도를 가진다
+
+예시 문제
+- BOJ 13549 - 숨바꼭질 3
+- BOJ 1261 - 알고스팟
+
+의사 코드
+
+```text
+while dq is not empty:
+    current_node = dq.pop_front()
+
+    for neighbor, weight in neighbors of current_node:
+      // 더 짧은 경로를 발견한 경우
+      if dist[current_node] + weight < dist[neighbor]:
+        dist[neighbor] = dist[current_node] + weight
+
+		// 가중치 0이라면 앞에, 1이라면 뒤에 넣는다
+        if weight == 0:
+          dq.push_front(neighbor)
+        else: // weight == 1
+          dq.push_back(neighbor)
+```
+
+### Flood-Fill
+개념
+- 특정 지점과 연결된, 같은 속성을 가진 인접한 영역을 새로운 속성으로 채우는 알고리즘
+- 주로 2차원 배열이나 그리드 형태의 데이터에서 사용함
+- 보통 4방향 탐색을 시도하나, 문제에 따라 6, 8방향, 혹은 3차원 시도하는 경우도 있음
+- 경계 처리에 주의할 것
+
+### 벨만-포드(Bellman-Ford)
+개념
+- 한 정점에서 다른 모든 정점까지의 최단 경로를 찾는 알고리즘
+- 다익스트라와 달리 음수 가중치 간선 처리가 가능함
+- "완화(Relaxation)"이라고 불리는 과정을 반복한다
+	- u에서 v로 가는 가중치 w의 간선 (u,v)에 대해서, 현재 알려진 시작점부터 v까지의거리 `dist[v]`보다 시작점에서 u를 거쳐  v로 가는 거리 `dist[u] + w`가 더 짧다면 이로 갱신한다
+
+### 플로이드-워셜(Floyd-Warshall)
+개념
+- 모든 정점 쌍 간의 최단 경로를 한번에 구하는 알고리즘
+- 벨만포드나 다익스트라가 하나의 시작점에서 모든 정점까지의 최단 거리를 구하는것(Single-source)과 달리, 모든 정점에서 출발하여 다른 모든 정점에 도착하는 최단 경로를 모두 계산함
+- DP를 이용함
+- 어떤 정점 K를 거쳐 가는 경로와 기존에 알려진 경로를 비교하는 아이디어에 기반함
 ### 4-4. 기타 주요 알고리즘
-- 정수론 : 소수 판별(에라토스테네스의 체), GCD/LCM, 모듈러 연산
-- 문자열 : KMP, 트라이(Trie) 등. [[문자열 파싱]] 등 문자열 관련 폴더 참조
+정수론 
+- 소수 판별(에라토스테네스의 체) 
 
-- 최소 신장 트리 (MST): 크루스칼(Kruskal), 프림(Prim)
-- 위상 정렬 (Topological Sort)
-- 구조체 비교
-- 비트마스킹 : 비트 연산을 이용한 집합 표현 및 상태 압축
+```cpp
+for (int i = 2; i * i <= num; i++) {
+	if (grid[i]) {
+		for (int k = i * i; k <= num; k += i) {
+			grid[k] = false;
+		}
+	}
+```
+
+- GCD/LCM : numeric 헤더 사용
+
+```cpp
+int gcd(int a, int b) {
+	if (a == 0) return b;
+	return gcd(b % a, a);
+}
+
+int lcm(int a, int b) {
+	return (a * b) / gcd(a, b);
+}
+```
+- 모듈러 연산
+	- a가 음수이면 = `a%m + m`
+
+문자열 
+- KMP 
+	- Knuth-Morris-Pratt알고리즘. 문자열 검색 알고리즘
+	- 하나의 긴 문자열 안에서 특정 짧은 문자열이 나타내는 모든 위치를 찾아낸다
+	- 불일치가 발생한 지점 이전에, 패턴의 저빔사와 접두사가 일치했는지 기억하고, 그 정보를 이용해 패턴을 한칸 이상 점프시킨다
+	- 라이브러리에서 제공하는 문자열 찾기 기능의 알고리즘은 보통 KMP 알고리즘보다 느리다
+- 트라이(Trie)
+	- 문자열을 저장하고 검색하는데 특화된 트리 형태 자료 구조
+	- 검색(Retrieval) 이라는 단어에서 유래함
+	- 매우 빠른 문자 검색
+- [[문자열 파싱]]
+
+최소 신장 트리 (Minimum Spanning Tree ,MST)
+- 주어진 가중치가 있는 무방향 그래프에서, 
+  모든 정점을 연결하면서 간선들의 가중치의 합이 최소가 되는 트리
+	- 신장(Spanning) : 그래프의 모든 정점이 포함되어 연결되어야 함
+		- V개의 정점이 있다면, MST는 항상 V-1개의 간선을 가짐
+	- 즉, 이 정점들을 모두 연결하면서, 간선들이 합이 최소가 되는 트리
+- 크루스칼(Kruskal) 알고리즘
+	- 가장 가중치가 낮은 간선부터 차례로 선택하는 알고리즘
+- 프림(Prim)
+	- 하나의 정점에서 시작해서, 최소 비용의 간선을 계속해서 연결하는 방식 
+
+위상 정렬 (Topological Sort)
+
+
+구조체 비교
+
+비트마스킹 : 비트 연산을 이용한 집합 표현 및 상태 압축
 
 ```cpp
 for (int s=0; s<(1<<n); s++) { // 부분집합 순회
