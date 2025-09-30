@@ -33,7 +33,7 @@ image:
 
 <img src="https://contents.codetree.ai/problem_factory/images/965f8c64-740a-4763-b0ed-5f476946a412.webp" width="500">
 
-- 1. 청소기 이동
+- 1) 청소기 이동
 	- 각각의 로봇 청소기는 순서대로 이동 거리가 가장 가까운 오염된 격자로 이동
 	- 물건이 위치한 격자나, 청소기가 잇는 격자로는 지나갈 수 없음
 	- 가장 가까운 격자가 여러개일 경우, 행 번호가 작은 격자로 이동하고, 행 번호가 같은 경우, 열 번호가 같은 격자로 이동
@@ -42,7 +42,7 @@ image:
 
 <img src="https://contents.codetree.ai/problem_factory/images/320070e2-0d76-46db-9804-62b6b62b3cd8.webp" width="500">
 
-- 2. 청소
+- 2) 청소
 	- 청소기는 바라보고 있는 방향을 기준으로, 본인이 위치한 격자, 지신의 왼쪽, 앞쪽, 오른쪽을 청소할 수 있음
 	- 청소할 수 있는 4가지 격자에서 청소할 수 있는 먼지량이 가장 큰 방향에서 청소를 시작함
 	- 격자마다 청소할 수 있는 최대 먼지량은 20
@@ -53,18 +53,18 @@ image:
 
 <img src="https://contents.codetree.ai/problem_factory/images/320070e2-0d76-46db-9804-62b6b62b3cd8.webp" width="500">
 
-- 3. 먼지 축적
+- 3) 먼지 축적
 	- 먼지가 있는 모든 격자에 동시에 5씩 추가됨
 
 
 <img src="https://contents.codetree.ai/problem_factory/images/22a4738c-8958-4102-908d-f10af657e8fc.webp" width="500">
 
-- 4. 먼지 확산
+- 4) 먼지 확산
 	- 깨끗한 격자 주변에 4방향 격자의 먼지량의 합을 10으로 나눈 값 만큼 먼지가 확산됨
 	- 나눗셈 과정에서 생기는 소숫점 아래수는 버림
 	- 모든 깨끗한 격자에 대해 동시에 확산이 이루어짐
 
-- 5. 출력
+- 5) 출력
 	- 전체 공간의 총 먼지량을 출력함
 	- 먼지가 있는곳이 없으면 0을 출력함
 
