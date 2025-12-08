@@ -1,6 +1,6 @@
 ---
 title: "Invisible Prompt Injection과 유튜브 AI 요약의 함정"
-date: 2025-07-03 22:37:44 +0900
+date: 2025-12-08 11:20:00 +0900
 categories: [IT, Ai]  # 최대 2개 가능
 tags: [security, youtube, subtitle, summary]     
 toc: true
